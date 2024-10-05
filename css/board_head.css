@@ -1,0 +1,156 @@
+/* Header */
+.board_header {
+    display: flex;
+    margin-left: 64px;
+    margin-top: 79.5px;
+    margin-right: 88px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+    .header_text_main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+    }
+        .header_text {
+            color: black;
+            font-size: 61px;
+            font-weight: 700;
+        }
+
+        .add_task_btn_mobile {
+            width: 40px;
+            height: 40px;
+            background-color: var(--bgdarkblue);
+            border-radius: 10px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .add_task_btn_mobile:hover {
+                background-color: var(--blue);
+            }
+
+        .search_add {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            width: 100%;
+            justify-content: end;
+        }
+
+        .search {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 312px;
+        }
+
+            .search > input {
+                border: 1px solid #ccc !important;
+                border-radius: 10px;
+                background-color: white;
+                width: 100%;
+                padding: 12px 76px 12px 21px !important;
+                color: black;
+                font-size: 16px;
+                font-weight: 400;
+                cursor: auto;
+            }
+
+                .search > input:focus {
+                    border: solid 1px var(--blue) !important;
+                    outline: var(--blue) !important;
+                }
+
+                .search > input:hover {
+                    border: solid 1px #A8A8A8 !important;
+                }
+        
+            .search > hr {
+            display: flex;
+            height: 31px;
+            width: 1px;
+            border-style: none;
+            margin-left: 1px;
+            position: absolute;
+            right: 64px;
+            background-color: #D1D1D1;
+            }
+
+            .search > .search_image {
+                position: absolute;
+                top: 7px;
+                right: 16px;
+                bottom: 8px;
+                cursor: pointer;
+            }
+
+                .search > .search_image:hover {
+                   background-color: rgb(238, 238, 238);
+                   border-radius: 20px;
+                }
+
+            .add_task_btn {
+                background-color: var(--bgdarkblue);
+                border-radius: 10px;
+                height: 48px;
+                width: 160px;
+                border: 1px solid rgb(41, 54, 71);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+
+                .add_task_btn:hover {
+                    background-color: var(--blue);
+                    box-shadow: 0px 4px 4px 0px #00000040;
+                    border-color: var(--blue);
+
+                }
+
+            .text_add_btn {
+                font-size: 21px;
+                font-weight: 700;
+                color: white;
+            }
+
+            .plus_add_btn {
+               margin-left: 4px;
+                width: 32px;
+                height: 32px;
+                display: flex;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+            }
+
+                .plus_add_btn > div {
+                    width: 18.67px;
+                    height: 18.67px;
+                    display: flex;
+                    position: relative;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                    .line_add_btn_horizont {
+                        background-color: white;
+                        width: 18.67px;
+                        height: 2px;
+                        position: absolute;
+                    }
+
+                    .line_add_btn_vertical {
+                        background-color: white;
+                        width: 2px;
+                        height: 18.67px;
+                        position: absolute;
+                    }

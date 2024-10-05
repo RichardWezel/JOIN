@@ -1,0 +1,672 @@
+.container_display_flex {
+    display: flex;
+    height: 100vh;
+}
+
+.contacts {
+    background-color: white;
+    box-shadow: 4px 0px 6px 0px #00000014;
+    margin-left: 232px;
+    overflow-y: scroll;
+    margin-top: 96px;
+    padding-bottom: 24px;
+}
+
+.add {
+    background: rgba(42, 54, 71, 1);
+    color: white;
+    padding: 12px 0px 12px 0px;
+    border-radius: 10px;
+    border: 1px;
+    gap: 16px;
+    display: flex;
+    width: 80%;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 52px;
+    margin-top: 22.5px;
+}
+
+.add:hover {
+    background: rgba(41, 171, 226, 1);
+}
+
+.contact_list {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-top: 28px;
+}
+
+.contact_list h3 {
+    width: 14px;
+    height: 24px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+
+.first_letter {
+    border-bottom: 1px solid rgba(209, 209, 209, 1);
+    width: 352px;
+    height: 58px;
+    padding: 17px 36px 17px 36px;
+    gap: 8px;
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.persons {
+
+    border-radius: 45px;
+    gap: 10px;
+    display: flex;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px;
+    border: 2px solid rgba(255, 255, 255, 1)
+}
+
+#text {
+    width: 121px;
+    height: 24px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+}
+
+.person_initials {
+    width: 42px;
+    height: 42px;
+    border-radius: 45px;
+    gap: 10px;
+    background-color: lightgray;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.persons_details {
+    display: -webkit-inline-box;
+    margin-top: 15px;
+    margin-bottom: 21px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    border-radius: 10px;
+    padding: 15px 24px 15px 24px;
+    gap: 35px;
+    margin-right: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+.you {
+    margin-left: 5px;
+  }
+
+.persons_details:hover {
+    background: rgba(240, 240, 240, 1)
+}
+
+.persons_details.active {
+    background-color: rgba(42, 54, 71, 1);
+    color: white;
+}
+
+.email {
+    font-size: 16px;
+    line-height: 19.2px;
+    font-weight: 400;
+    color: rgba(0, 124, 238, 1);
+    word-break: break-word;
+}
+
+.better_team {
+    gap: 30px;
+    align-items: center;
+    height: 73px;
+    margin-top: 206px;
+    margin-right: 128px;
+    flex-direction: column;
+}
+
+.better_team_text {
+    display: flex;
+    align-items: center;
+}
+
+.better_team h1 {
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 73.2px;
+    border-right-style: solid;
+    border-right-color: rgba(41, 171, 226, 1);
+    padding-right: 30px;
+    height: 70px;
+}
+
+.better_team h2 {
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 32.4px;
+    margin-left: 30px;
+
+}
+
+@keyframes moveInRight {
+    from {
+        transform: translateX(400%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.background {
+    display: none;
+    transition: transform 0.3s ease-out, background-color 0s ease-out;
+}
+
+.background.close {
+    transform: translateX(200%);
+}
+
+.background.open {
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display_flex {
+    display: flex;
+    justify-content: center;
+}
+
+.display_flex a:hover {
+    color: rgba(41, 171, 226, 1);
+}
+
+.button_contacts a:hover {
+    color: rgba(41, 171, 226, 1);
+}
+
+.button_contacts a path:hover {
+    fill: rgba(41, 171, 226, 1);
+}
+
+.display_center {
+    animation-name: moveInRight;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+    width: 100%;
+}
+
+.add_dialog img {
+    width: 55.6px;
+    height: 66.48px;
+}
+
+
+.left {
+    padding: 66px 48px 66px 48px;
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    background: rgba(42, 54, 71, 1);
+    height: 594px;
+    justify-content: center;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+.left h2 {
+    color: white;
+    font-size: 61px;
+    font-weight: 700;
+    line-height: 73.2px;
+}
+
+.left h3 {
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 32.4px;
+    color: white;
+}
+
+.underline {
+    border-bottom-style: solid;
+    border-bottom-color: rgba(41, 171, 226, 1);
+    border-width: 3px;
+    box-sizing: unset;
+    width: 90px;
+    border-radius: 10px;
+}
+
+.background_image img {
+    width: 42.67px;
+    height: 42.67px;
+
+}
+
+.background_image {
+    margin-bottom: 50px;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 70px;
+    border: 3px solid rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    background: rgba(217, 217, 217, 1);
+    margin-top: 204px;
+    margin-left: 83px;
+    display: flex;
+    justify-content: center;
+}
+
+.right {
+    background-color: white;
+    height: 594px;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.right input[type="text"] {
+    background-image: url(../assets/img/person.png);
+    background-repeat: no-repeat;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    background-position: right 16px center;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 13px 21px 13px 21px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.right input:hover {
+    border: 1px solid rgba(41, 171, 226, 1)
+}
+
+.right input[type="email"] {
+    background-image: url(../assets/img/mail.png);
+    background-repeat: no-repeat;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    background-position: right 16px center;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 13px 21px 13px 21px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.right input:hover {
+    border: 1px solid rgba(41, 171, 226, 1)
+}
+
+input[type="tel"] {
+    background-image: url(../assets/img/call.png);
+    background-repeat: no-repeat;
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    background-position: right 16px center;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 13px 21px 13px 21px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.add_contact {
+    display: flex;
+    gap: 30px;
+    margin-right: 48px;
+    flex-direction: column;
+    margin-left: 72px;
+    margin-top: 80px;
+}
+
+.add_contact .vector {
+    width: 13.5px;
+    height: 13.5px;
+    margin-top: 48px;
+    margin-left: 665px;
+    box-shadow: none;
+    position: relative;
+    bottom: 80px;
+}
+
+.add_contact img:hover {
+    border-radius: 56px;
+    cursor: pointer;
+    background: rgba(238, 238, 238, 1);
+}
+
+.display_center_b {
+    display: flex;
+    margin-top: 48px;
+    margin-left: 70px;
+}
+
+.display_center_b button {
+    width: 126px;
+    height: 56px;
+    border-radius: 10px;
+    border: 1px;
+    padding: 16px;
+    display: flex;
+    gap: 10px;
+    border: 1px solid rgba(42, 54, 71, 1);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-right: 16px;
+
+}
+
+.display_center_b button:hover {
+    border: 2px solid rgba(41, 171, 226, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.display_center_b img {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: none;
+    margin-left: 8px;
+    margin-top: 4px;
+}
+
+#flexContainer {
+    margin-left: 55px;
+}
+
+.display_center_b .create_button {
+    width: 214px;
+    height: 57px;
+    border-radius: 16px;
+    display: flex;
+    gap: 4px;
+    font-size: 20px;
+    line-height: 25.2px;
+    font-weight: 700;
+    color: white;
+    background: rgba(42, 54, 71, 1);
+    padding: 16px;
+}
+
+.display_center_b .create_button:hover {
+    background: rgba(41, 171, 226, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.selected_person {
+    display: flex;
+    margin-top: 32px;
+    justify-content: center;
+    flex-direction: column;
+    transform: translateX(400%);
+    transition: transform 300ms ease-in-out;
+    background: none;
+}
+
+.selected_person.active {
+    transform: translateX(0);
+}
+
+.selected_person .persons {
+    width: 120px;
+    height: 120px;
+    font-size: 47px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 56.4px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(255, 255, 255, 1);
+    border-radius: 70px;
+    margin-right: 55px;
+}
+
+.selected_person .persons_details {
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 56.4px;
+    cursor: unset;
+    gap: 6px;
+    padding: 0;
+}
+
+.selected_person .persons_details:hover {
+    background-color: unset;
+}
+
+.button_contacts text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+}
+
+.button_contacts {
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+}
+
+.button_contacts a {
+    align-items: center;
+    display: flex;
+    color: black;
+}
+
+.button_contacts img {
+    width: 18.28px;
+    height: 18.28px;
+    margin-right: 8px;
+
+}
+
+svg {
+    margin-right: 8px;
+}
+
+.edit_delete_text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: black;
+}
+
+.edit_delete_text:hover {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(41, 171, 226, 1);
+}
+.edit_delete_text:hover path{
+    fill: rgba(41, 171, 226, 1);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-right: 254px;
+    margin-top: 21px;
+}
+
+.info h3 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 59px;
+}
+
+.info h4 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.emails {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(0, 124, 238, 1);
+    margin-bottom: 22px;
+}
+
+.info p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.display_center_b .save_button {
+    width: 111px;
+    height: 57px;
+    padding: 16px;
+    border-radius: 10px;
+    gap: 4px;
+    background: rgba(42, 54, 71, 1);
+    color: white;
+}
+
+.display_center_b .save_button:hover {
+    background: rgba(41, 171, 226, 1);
+}
+
+.save_button img {
+    width: 16px;
+    height: 16px;
+}
+.display_center_b button svg{
+    width: 24px;
+    height: 24px;
+    margin: 0;
+}
+
+.display_center_b .delete_button {
+    width: 113px;
+    height: 55px;
+    padding: 15px 24px 15px 24px;
+    border-radius: 8px;
+    border: 1px;
+    gap: 10px;
+    margin-right: 25px;
+    border: 1px solid rgba(42, 54, 71, 1);
+}
+
+#selectedPersonInitials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 97px;
+}
+
+#selectedPersonInitials .persons {
+    width: 120px;
+    height: 120px;
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 56px;
+    letter-spacing: 0em;
+    text-align: center;
+    border-radius: 70px;
+    border: 3px solid rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.success {
+    position: fixed;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+    background: rgba(42, 54, 71, 1);
+    border-radius: 20px;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    left: 50%;
+    width: 326px;
+    padding: 20px;
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80%;
+    transform: translateX(600%);
+    transition: transform 800ms ease-in-out;
+}
+
+.success.active {
+    transform: translateX(0);
+}
+
+.back_button {
+    display: none;
+}
+
+.edit_delete_window {
+    display: none;
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+/*Mobile Version(responsive) in contact_mediaquery.css*/

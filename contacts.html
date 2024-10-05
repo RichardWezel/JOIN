@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/contacts_mediaquery.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/contacts_mediaquery.css">
+    <link rel="stylesheet" href="css/contacts_mediaquery_1000.css">
+    <link rel="stylesheet" href="./Fonts/Inter-VariableFont_slnt,wght.ttf">
+    <script src="./js/include.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="./js/contact.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/reset.js"></script>
+</head>
+
+<body onload="includeHTML(); init()">
+    <div template-src="./assets/templates/sidebar.html"></div>
+    </div>
+    <div class="container_display_flex">
+        <div class="contacts">
+            <button onclick="openDialog()" class="add"><span> Add new contact</span> <img
+                    src="assets/img/person_add.png"></button>
+            <div id="person" class="contact_list">
+            </div>
+        </div>
+        <div id="flexContainer" class="display_flex">
+            <div class="better_team">
+                <div class="better_team_text"><a class="back_button" onclick="backMobile()"><svg width="24" height="20"
+                            viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4.70752 8.63255H22.1981C22.9345 8.63255 23.5314 9.2295 23.5314 9.96588C23.5314 10.7023 22.9345 11.2992 22.1981 11.2992H4.70752L10.9169 17.5085C11.4375 18.0292 11.4375 18.8733 10.9168 19.3939C10.3962 19.9145 9.55214 19.9145 9.03152 19.3939L1.01773 11.3801C0.236679 10.599 0.236681 9.33272 1.01773 8.55167L9.03152 0.537881C9.55214 0.0172601 10.3962 0.0172609 10.9168 0.537881C11.4375 1.0585 11.4375 1.90259 10.9168 2.42322L4.70752 8.63255Z"
+                                fill="#29ABE2" />
+                        </svg></a>
+                    <h1>Contacts</h1>
+                    <h2>Better with a team</h2>
+                    <div class="line"></div>
+                </div>
+                <div id="selectedPerson" class="selected_person">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="editPersons" class="background">
+        <div class="display_center add_dialog">
+            <div class="left"><img src="assets/img/join_logo_vector.svg">
+                <h2>Edit contact</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="right">
+                <div id="selectedPersonInitials">
+                    <img o src="./assets/img/person_white.png">
+                </div>
+                <form class="input_position">
+                    <div class="add_contact">
+                        <a class="vector" onclick="closePerson()"><svg width="14" height="14" viewBox="0 0 14 14"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.00005 8.40005L2.10005 13.3C1.91672 13.4834 1.68338 13.575 1.40005 13.575C1.11672 13.575 0.883382 13.4834 0.700049 13.3C0.516715 13.1167 0.425049 12.8834 0.425049 12.6C0.425049 12.3167 0.516715 12.0834 0.700049 11.9L5.60005 7.00005L0.700049 2.10005C0.516715 1.91672 0.425049 1.68338 0.425049 1.40005C0.425049 1.11672 0.516715 0.883382 0.700049 0.700049C0.883382 0.516715 1.11672 0.425049 1.40005 0.425049C1.68338 0.425049 1.91672 0.516715 2.10005 0.700049L7.00005 5.60005L11.9 0.700049C12.0834 0.516715 12.3167 0.425049 12.6 0.425049C12.8834 0.425049 13.1167 0.516715 13.3 0.700049C13.4834 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4834 1.91672 13.3 2.10005L8.40005 7.00005L13.3 11.9C13.4834 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4834 13.1167 13.3 13.3C13.1167 13.4834 12.8834 13.575 12.6 13.575C12.3167 13.575 12.0834 13.4834 11.9 13.3L7.00005 8.40005Z"
+                                    fill="#2A3647" />
+                            </svg>
+                        </a>
+                        <input type="hidden" id="selectedPersonIndex">
+                        <input id="name" type="text" required autocomplete="name" placeholder="Name">
+                        <input id="email" type="email" required autocomplete="email" placeholder="Email">
+                        <span id="emailError1" style="color: red; display: none;">Please enter a valid email
+                            address.</span>
+                        <input id="phone" type="tel" required autocomplete="tel" placeholder="Phone"
+                            oninput="validatePhone(this)">
+                        <span id="phoneError" style="color: red; display: none;">Please enter only numbers.</span>
+                    </div>
+                    <div class="display_center_b">
+                        <button style="display: flex;" onclick="deletePerson(); closePerson(); event.preventDefault();"
+                            class="delete_button">Delete</button>
+                        <button style="display: flex;" onclick="saveChanges(); event.preventDefault();"
+                            class="save_button">Save<img src="./assets/img/check.png"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="dialog" class="background">
+        <div class="display_center add_dialog">
+            <div class="left"><img src="assets/img/join_logo_vector.svg">
+                <h2>Add contact</h2>
+                <h3>Tasks are better with a team!</h3>
+                <div class="underline"></div>
+            </div>
+
+            <div class="right">
+                <div class="background_image">
+                    <img src="./assets/img/person_white.png">
+                </div>
+                <form onsubmit="createContact(event)">
+                    <div class="add_contact">
+                        <a class="vector" onclick="closeDialog()">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.00005 8.40005L2.10005 13.3C1.91672 13.4834 1.68338 13.575 1.40005 13.575C1.11672 13.575 0.883382 13.4834 0.700049 13.3C0.516715 13.1167 0.425049 12.8834 0.425049 12.6C0.425049 12.3167 0.516715 12.0834 0.700049 11.9L5.60005 7.00005L0.700049 2.10005C0.516715 1.91672 0.425049 1.68338 0.425049 1.40005C0.425049 1.11672 0.516715 0.883382 0.700049 0.700049C0.883382 0.516715 1.11672 0.425049 1.40005 0.425049C1.68338 0.425049 1.91672 0.516715 2.10005 0.700049L7.00005 5.60005L11.9 0.700049C12.0834 0.516715 12.3167 0.425049 12.6 0.425049C12.8834 0.425049 13.1167 0.516715 13.3 0.700049C13.4834 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4834 1.91672 13.3 2.10005L8.40005 7.00005L13.3 11.9C13.4834 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4834 13.1167 13.3 13.3C13.1167 13.4834 12.8834 13.575 12.6 13.575C12.3167 13.575 12.0834 13.4834 11.9 13.3L7.00005 8.40005Z"
+                                    fill="#2A3647" />
+                            </svg>
+                        </a>
+                        <input id="input_name" type="text" maxlength="30" required autocomplete="name" placeholder="Name">
+                        <div id="error_message" class="error-message" style="display: none;"></div>
+                        <input id="input_email" type="email" required autocomplete="email" placeholder="Email"
+                            onblur="validateEmail()">
+                        <span id="emailError" style="color: red; display: none;">Please enter a valid email
+                            address.</span>
+                        <input id="input_phone" type="tel" required autocomplete="tel" minlength="6" placeholder="Phone"
+                            oninput="validatePhone(this)">
+                        <span id="phoneError" style="color: red; display: none;">Please enter only numbers.</span>
+                    </div>
+                    <div class="display_center_b">
+                        <button onclick="closeDialog()">Cancel<svg width="14" height="14" viewBox="0 0 14 14"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.00005 8.40005L2.10005 13.3C1.91672 13.4834 1.68338 13.575 1.40005 13.575C1.11672 13.575 0.883382 13.4834 0.700049 13.3C0.516715 13.1167 0.425049 12.8834 0.425049 12.6C0.425049 12.3167 0.516715 12.0834 0.700049 11.9L5.60005 7.00005L0.700049 2.10005C0.516715 1.91672 0.425049 1.68338 0.425049 1.40005C0.425049 1.11672 0.516715 0.883382 0.700049 0.700049C0.883382 0.516715 1.11672 0.425049 1.40005 0.425049C1.68338 0.425049 1.91672 0.516715 2.10005 0.700049L7.00005 5.60005L11.9 0.700049C12.0834 0.516715 12.3167 0.425049 12.6 0.425049C12.8834 0.425049 13.1167 0.516715 13.3 0.700049C13.4834 0.883382 13.575 1.11672 13.575 1.40005C13.575 1.68338 13.4834 1.91672 13.3 2.10005L8.40005 7.00005L13.3 11.9C13.4834 12.0834 13.575 12.3167 13.575 12.6C13.575 12.8834 13.4834 13.1167 13.3 13.3C13.1167 13.4834 12.8834 13.575 12.6 13.575C12.3167 13.575 12.0834 13.4834 11.9 13.3L7.00005 8.40005Z"
+                                    fill="#2A3647" />
+                            </svg>
+                        </button>
+                        <button type="submit" id="createButton" class="create_button" disabled>Create contact<img
+                            src="./assets/img/check.png"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="success">
+        <p>Contact succesfully created</p>
+    </div>
+</body>
+
+</html>

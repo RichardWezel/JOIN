@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOIN - Summary</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/summary.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="./Fonts/Inter-VariableFont_slnt,wght.ttf" />
+    <link rel="stylesheet" href="./css/summary_mediaquery.css">
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- Javascript -->
+    <script src="./js/include.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/reset.js"></script>   
+  </head>
+
+  <body onload="init()">
+    <div template-src="./assets/templates/sidebar.html"></div>
+    <div id="good_morning_container" class="background_greeting">
+        <div class="welcome_message_first">
+          <span id="good_morning_text"></span>
+          <span id="user_name_first"></span>
+        </div>
+    </div>
+  
+
+      </div>
+    </div>
+    <div class="container" id="summary_main_container">
+      
+      <section class="section_summary">
+        <header>
+          <h1>Join 360</h1>
+          <hr class="hr_blue" />
+          <h2>Key Metrics at a Glance</h2>
+          <div class="line"></div>
+        </header>
+
+        <main class="display_center">
+          <div class="content">
+            <div class="first_row">
+              <a
+                href="./board.html"
+                class="task display_center"
+                onmouseover="hover(this, './assets/img/pencil_white.svg')"
+                onmouseout="unhover(this, './assets/img/pencil.svg')"
+              >
+                <img src="./assets/img/pencil.svg" />
+                <div class="display_center flex_direction_column">
+                  <div class="task_amount" id="to_do_amount"></div>
+                  <div class="task_name first_row_task_name">To-Do</div>
+                </div>
+              </a>
+              <a
+                href="./board.html"
+                class="task display_center"
+                onmouseover="hover(this, './assets/img/hook_white.svg')"
+                onmouseout="unhover(this, './assets/img/hook.svg')"
+              >
+                <img src="./assets/img/hook.svg" />
+                <div class="display_center flex_direction_column">
+                  <div class="task_amount" id="done_amount"></div>
+                  <div class="task_name">Done</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="second_row">
+              <a href="./board.html" class="urgent_task">
+                <div class="urgent_task_status">
+                  <img src="./assets/img/double_arrow.svg" />
+                  <div class="display_center flex_direction_column">
+                    <div class="task_amount" id="urgent_amount"></div>
+                    <div class="task_name">Urgent</div>
+                  </div>
+                </div>
+                <hr />
+                <div
+                  class="display_center flex_direction_column"
+                  style="gap: 13px"
+                >
+                  <p class="urgent_task_date" id="next_due_date"></p>
+                  <p>Upcoming Deadline</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="third_row">
+              <a
+                href="./board.html"
+                class="display_center flex_direction_column task"
+              >
+                <div class="task_amount" id="all_amounts"></div>
+                <div class="task_name width_67">Task in Board</div>
+              </a>
+              <a
+                href="./board.html"
+                class="display_center flex_direction_column task"
+              >
+                <div class="task_amount" id="in_progress_amount"></div>
+                <div class="task_name">Task in Progress</div>
+              </a>
+              <a
+                href="./board.html"
+                class="display_center flex_direction_column task"
+              >
+                <div class="task_amount" id="awaiting_feedback_amount"></div>
+                <div class="task_name">Awaiting Feeback</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="welcome_message">
+            <span>Good morning,</span>
+            <span id="user_name"></span>
+          </div>
+        </main>
+      </section>
+    </div>
+    <script src="./js/summary.js"></script>
+  </body>
+</html>

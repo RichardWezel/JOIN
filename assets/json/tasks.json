@@ -1,0 +1,119 @@
+[
+    {
+        "title": "Kochwelt Page & Recipe Recommender",
+        "description": "Build start page with recipe recommendation.",
+        "category": "User Story",
+        "contacts": [
+            {
+                "firstName": "Anton",
+                "secondName": "Mayer",
+                "color": "var(--orange)"
+            },
+            {
+                "firstName": "Emmanuel",
+                "secondName": "Mauer",
+                "color": "var(--turquoise)"
+            },
+            {
+                "firstName": "Marcel",
+                "secondName": "Bauer",
+                "color": "var(--darkslateblue)"
+            }
+        ],
+        "dueDate": "11/07/24",
+        "priority": "Medium",
+        "subtasks": [
+            {
+                "name": "Implement Recipe Recommendation",
+                "done": true
+            },
+            {
+                "name": "Start Page Layout",
+                "done": false
+            }
+        ],
+        "status": "inProgress"
+    },
+    {
+        "title": "HTML Base Template Creation",
+        "description": "Create reusable HTML base templates...",
+        "category": "Technical Task",
+        "contacts": [
+            {
+                "firstName": "David",
+                "secondName": "Eisenberg",
+                "color": "var(--violet)"
+            },
+            {
+                "firstName": "Benedict",
+                "secondName": "Ziegler",
+                "color": "var(--mediumslateblue)"
+            },
+            {
+                "firstName": "Anja",
+                "secondName": "Schulz",
+                "color": "var(--blueviolet)"
+            }
+        ],
+        "dueDate": "10/05/26",
+        "priority": "Low",
+        "subtasks": [],
+        "status": "awaitFeedback"
+    },
+    {
+        "title": "Daily Kochwelt Recipe",
+        "description": "Implement daily recipe and portion calculator....",
+        "category": "User Story",
+        "contacts": [
+            {
+                "firstName": "Eva",
+                "secondName": "Fischer",
+                "color": "var(--yellow)"
+            },
+            {
+                "firstName": "Anja",
+                "secondName": "Schulz",
+                "color": "var(--blueviolet)"
+            },
+            {
+                "firstName": "Tatjana",
+                "secondName": "Wolf",
+                "color": "var(--red)"
+            }
+        ],
+        "dueDate": "30/12/24",
+        "priority": "Medium",
+        "subtasks": [],
+        "status": "awaitFeedback"
+    },
+    {
+        "title": "CSS Architecture Planning",
+        "description": "Define CSS naming conventions and structure",
+        "category": "Technical Task",
+        "contacts": [
+            {
+                "firstName": "Sofia",
+                "secondName": "Müller",
+                "color": "var(--deepskyblue)"
+            },
+            {
+                "firstName": "Benedict",
+                "secondName": "Ziegler",
+                "color": "var(--mediumslateblue)"
+            }
+        ],
+        "dueDate": "01/07/25",
+        "priority": "Urgent",
+        "subtasks": [
+            {
+                "name": "Establish CSS Methodology",
+                "done": true
+            },
+            {
+                "name": "Setup Base Styles",
+                "done": true
+            }
+        ],
+        "status": "done"
+    }
+]

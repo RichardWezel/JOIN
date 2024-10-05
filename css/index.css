@@ -1,0 +1,318 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bgwhite);
+}
+
+.early_mobile_screen {
+  background-color: #2a3647;
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  /* z-index: 99; */
+  display: none;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 48px;
+  opacity: 0;
+}
+
+.toastMessageIndex {
+  background-color: var(--bgdarkblue);
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  display: flex;
+  width: fit-content;
+  padding: 16px 24px 16px 24px;
+  border-radius: 16px;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  justify-content: center;
+}
+
+.toastMessageIndex_text {
+  display: flex;
+  margin-right: 25px;
+}
+
+.toastMessageIndex_img path {
+  fill: white;
+}
+
+.toastMessageIndex_img {
+  display: flex;
+}
+
+.logo_grey_wrapper {
+  display: flex;
+}
+
+.logo_grey {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.logo_white {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  display: none;
+}
+
+.sign_up {
+  position: absolute;
+  right: 122px;
+  top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 279px;
+  height: 49px;
+}
+
+.sign_up span {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.btn_sign_up {
+  font-size: 16px;
+  padding: 15px 16px 15px 16px;
+}
+
+.login_section {
+  width: 652px;
+  box-shadow: 0px 0px 14px 3px #0000000a;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 48px 48px 48px;
+  row-gap: 32px;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 61px;
+  font-weight: 700;
+}
+
+hr {
+  width: 70%;
+  align-self: center;
+  height: 3px;
+  border: none;
+  background-color: var(--blue);
+}
+
+.input_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 20px;
+  width: 65%;
+}
+
+.input_fields {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.input_fields input {
+  border-radius: 10px;
+  border: 1px solid rgb(209, 209, 209);
+  padding: 12px 40px 12px 21px;
+}
+
+.btns {
+  display: flex;
+  gap: 35px;
+}
+
+.btn_log_in {
+  padding: 15px 24px 15px 24px;
+}
+
+.btn_guest_log_in {
+  padding: 15px 24px 15px 24px;
+}
+
+.remember_me {
+  margin-left: 39px;
+}
+
+#checkbox {
+  transition: transform 0.3s ease-in;
+  border-radius: 2px;
+}
+
+#checkbox:hover {
+  transform: scale(1.05);
+  border-color: var(--blue);
+  border: solid 3px black;
+  box-shadow: 0px 0px 14px 3px #0000000a;
+}
+
+.legal_section {
+  display: flex;
+  gap: 16px;
+}
+
+.link_wrapper {
+  width: 110px;
+  text-align: center;
+}
+
+.legal_section a {
+  color: rgb(168, 168, 168);
+  text-decoration: none;
+}
+
+.legal_section a:hover {
+  font-weight: 700;
+  color: var(--blue);
+}
+/* 
+.d-none {
+  display: none;
+} */
+
+.btn_log_in h1 {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 25.2px;
+}
+
+.btn_guest_log_in h1 {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 25.2px;
+}
+
+@keyframes moveLogoDesktop {
+  from {
+    width: 274px;
+    height: 334px;
+  }
+
+  to {
+    transform: translate(0%, 0%);
+    top: 72px;
+    left: 64px;
+    width: 100px;
+    height: 122px;
+  }
+}
+
+@keyframes contentVisibilityDesktop {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveLogoMobileGrey {
+  0% {
+    width: 100px;
+    height: 122px;
+  }
+
+  100% {
+    transform: translate(0%, 0%);
+    top: 16px;
+    left: 40px;
+    width: 64px;
+    height: 78px;
+    z-index: 101;
+  }
+}
+
+@keyframes moveLogoMobileWhite {
+  0% {
+    width: 100px;
+    height: 122px;
+  }
+
+  100% {
+    transform: translate(0%, 0%);
+    top: 16px;
+    left: 40px;
+    width: 64px;
+    height: 78px;
+    z-index: 100;
+  }
+}
+
+@keyframes changeLogoSource {
+  from {
+    src: "./assets/img/logo.svg";
+  }
+
+  to {
+    src: "./assets/img/logo_white_mobile.svg";
+  }
+}
+
+@keyframes bgChangeColor {
+  from {
+    background-color: #2a3647;
+  }
+
+  to {
+    background-color: white;
+  }
+}
+
+@keyframes contentVisibilityMobile {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    animation: contentVisibilityDesktop 700ms ease-in-out 700ms both;
+  }
+
+  .logo_grey {
+    animation: moveLogoDesktop 700ms ease-in-out 700ms both;
+  }
+}

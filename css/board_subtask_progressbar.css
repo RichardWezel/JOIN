@@ -1,0 +1,57 @@
+/* subtask / progressbar */
+.task_progress {
+    height: 16px;
+}
+
+.task_progress .progressbar_section{
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task_progress:hover .hover_text_progressbar{
+    display: flex !important;
+}
+
+    .progressbar {
+        width: 128px;
+        border-radius: 8px;
+        background-color: #F4F4F4;
+        height: 8px;
+        margin-top: 1px;
+        position: relative;
+    }
+
+        .progressbar_blue {
+            border-radius: 8px;
+            background-color: #4589FF;
+            height: 8px;
+        }
+
+        .progressbar_blue_hundred {
+            width: 100%;
+            border-radius: 8px;
+            background-color: #4589FF;
+            height: 8px;
+        }
+
+        .progressbar_text {
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .hover_text_progressbar {
+            background-color: var(--bgdarkblue);
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            width: 100%;
+            padding: 8px;
+            border-radius: 10px;
+            position: relative;
+            top: -56px;
+            display: none;
+            justify-content: center;
+        }

@@ -1,0 +1,459 @@
+/*Mobile Version(responsive)*/
+
+@media(max-width: 1000px) {
+    .container_display_flex {
+        height: unset;
+        justify-content: center;
+    }
+
+    .add_dialog {
+        flex-direction: column;
+    }
+
+    .left {
+        padding: 66px 24px 66px 24px;
+        display: flex;
+        gap: 12px;
+        width: 396px;
+        height: 352px;
+        border-top-right-radius: 30px;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 0;
+        margin-left: 0;
+    }
+
+    .left h2 {
+        font-size: 47px;
+        line-height: 56.4px;
+    }
+
+    .left h3 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .left img {
+        display: none;
+    }
+
+    .right {
+        padding: 66px 24px 66px 24px;
+        gap: 12px;
+        width: 396px;
+        height: 352px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 30px;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0px;
+    }
+
+    .background_image {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .add_contact {
+        gap: 15px;
+        margin-top: 32px;
+        margin-left: 16px;
+        margin-right: 16px;
+        width: 364px;
+    }
+
+    .background.close {
+        transform: translateY(200%);
+    }
+
+    .display_center {
+        animation-name: none;
+        animation-duration: 100ms;
+    }
+
+    .add_contact .vector {
+        background-color: unset;
+        margin: 0;
+        position: relative;
+        left: 330px;
+        bottom: 370px;
+    }
+
+    .add_contact path {
+        fill: white;
+    }
+
+    .better_team_text {
+        margin-left: 0;
+    }
+
+    .display_center_b {
+        margin-top: 32px;
+        margin-left: 90px;
+    }
+
+    .input_position {
+        margin-bottom: 140px;
+    }
+
+    .display_center_b .create_button {
+        border-radius: 10px;
+        padding: 18px 10px 18px 10px;
+        width: 202px;
+        height: 51px;
+        align-items: center;
+        margin-left: 0px;
+        margin-bottom: 0px;
+    }
+
+    .display_center_b .create_button:hover {
+        background: rgba(42, 54, 71, 1);
+        border: 1px solid rgba(42, 54, 71, 1);
+        box-shadow: none;
+    }
+
+    .display_center_b img {
+        margin-top: 0;
+        width: 15.49px;
+        height: 15.23px;
+    }
+
+    .right input[type="text"] {
+        height: 41px;
+    }
+
+    .right input[type="email"] {
+        height: 41px;
+    }
+
+    .right input[type="tel"] {
+        height: 41px;
+    }
+
+    .add_dialog {
+        flex-direction: column;
+    }
+
+    #selectedPersonInitials {
+        margin: 0;
+        position: relative;
+        top: 40px;
+    }
+
+    .display_center_b .delete_button {
+        padding: 18px 10px 18px 10px;
+        width: 82px;
+        height: 51px;
+        border-radius: 10px;
+        gap: 10px;
+        font-size: 20px;
+        align-items: center;
+        border: 1px solid rgba(42, 54, 71, 1);
+    }
+
+    .display_center_b .delete_button:hover {
+        box-shadow: unset;
+        border: 1px solid rgba(42, 54, 71, 1);
+    }
+
+    .display_center_b .save_button {
+        width: 99px;
+        height: 51px;
+        align-items: center;
+        padding: 18px 10px 18px 10px;
+        gap: 4px;
+    }
+
+    .display_center_b .save_button:hover {
+        box-shadow: none;
+        background-color: rgba(42, 54, 71, 1);
+        border: 1px solid rgba(42, 54, 71, 1);
+    }
+
+    .display_flex {
+        display: none;
+        margin-left: 0;
+    }
+
+    .contacts {
+        margin-left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow-y: unset;
+        height: 100%;
+        padding-bottom: 150px;
+        margin-top: 80px;
+    }
+
+    .contact_list {
+        margin-left: 16px;
+        margin-top: 24px;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+    .first_letter {
+        width: 95%;
+    }
+
+    .add {
+        background: rgba(42, 54, 71, 1);
+        color: white;
+        padding: 12px;
+        border: none;
+        gap: 10px;
+        display: flex;
+        border: 1px solid rgba(42, 54, 71, 1);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        position: fixed;
+        bottom: 100px;
+        right: 1px;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 46px;
+        margin-right: 16px;
+    }
+
+    .add span {
+        display: none;
+    }
+
+    .add:hover {
+        border: unset;
+    }
+
+    .persons_details {
+        width: 90%;
+        margin-right: 0;
+        display: -webkit-inline-box;
+        font-size: 20px;
+    }
+
+    .persons_details.active {
+        background-color: unset;
+        color: unset;
+        flex-direction: unset;
+        align-items: unset;
+        text-align: unset;
+        padding: 15px 24px 15px 24px;
+    }
+
+    .persons_details:hover {
+        background: none;
+    }
+
+    .success {
+        transform: translateY(600%);
+        left: 6%;
+    }
+
+    .success.active {
+        top: 80%;
+    }
+
+    .better_team {
+        margin-top: 128px;
+        margin-right: 0;
+    }
+
+    .better_team_text {
+        flex-direction: column;
+        align-items: unset;
+    }
+
+    .better_team h1 {
+        font-size: 47px;
+        line-height: 56.4px;
+        border-right: unset;
+    }
+
+    .better_team h2 {
+        font-size: 20px;
+        margin-left: 0;
+        line-height: 24px;
+        font-weight: 400;
+    }
+
+    .line {
+        border-bottom-style: solid;
+        border-bottom-color: rgba(41, 171, 226, 1);
+        border-width: 3px;
+        box-sizing: unset;
+        width: 90px;
+        padding-bottom: 16px;
+    }
+
+    .back_button {
+        display: unset;
+        margin-left: 360px;
+        position: relative;
+        top: 24px;
+    }
+
+    .selected_person {
+        margin-left: 0px;
+        display: unset;
+    }
+
+    .selected_person .persons_details {
+        font-size: 36px;
+        line-height: 43.2px;
+        font-weight: 700;
+        align-items: center;
+        margin-right: 0px;
+        padding: 0;
+        justify-content: unset;
+        margin-left: 0;
+        display: flex;
+    }
+
+    .selected_person .persons {
+        font-size: 27px;
+        line-height: 32.4px;
+        font-weight: 400;
+        margin-right: 20px;
+        padding: 0;
+    }
+
+    .button_contacts {
+        background-image: url(../assets/img/more_vert.svg);
+        background-color: rgba(42, 54, 71, 1);
+        color: white;
+        padding: 12px;
+        border: none;
+        gap: 10px;
+        display: flex;
+        border: 1px solid rgba(42, 54, 71, 1);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        position: fixed;
+        bottom: 100px;
+        right: 1px;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 46px;
+        margin-right: 16px;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+    }
+
+    .button_contacts:hover {
+        background-color: rgba(41, 171, 226, 1);
+        border: rgba(41, 171, 226, 1);
+    }
+
+    .info {
+        margin-right: 0;
+    }
+
+    .edit_delete_window {
+        position: relative;
+        top: 110%;
+        right: -500%;
+        transform: translateY(-50%);
+        transition: right 0.3s ease-out;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        background: rgba(255, 255, 255, 1);
+        width: 116px;
+        height: 100px;
+        padding: 10px;
+        border-radius: 20px 20px 0 20px;
+        display: block;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .edit_delete_window.active {
+        right: 10px;
+    }
+
+    .edit_delete_window a:hover {
+        font-size: 16px;
+        font-weight: 700;
+        color: rgba(41, 171, 226, 1);
+    }
+
+    .edit_delete_window a:hover path {
+        fill: rgba(41, 171, 226, 1);
+    }
+
+    .edit_delete_window a {
+        font-size: 16px;
+        display: flex;
+        font-weight: 400;
+        color: rgba(42, 54, 71, 1);
+        height: 49px;
+        gap: 8px;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    #flexContainer {
+        margin-left: 0;
+    }
+
+    .display_center_b button {
+        display: none;
+    }
+
+    .display_center_b button .delete_button {
+        display: flex;
+    }
+}
+
+@media(max-width:400px) {
+
+    .left {
+        width: 300px;
+    }
+
+    .right {
+        width: 300px;
+    }
+
+    .add_contact {
+        width: 280px;
+    }
+
+    .add_contact .vector {
+        left: 290px;
+        bottom: 380px;
+    }
+
+    .display_center_b {
+        margin-left: 50px;
+    }
+
+    .add_contact .vector {
+        left: 250px;
+        bottom: 380px;
+    }
+
+    .left h2 {
+        font-size: 36px;
+    }
+
+    .left h3 {
+        font-size: 16px;
+    }
+    .back_button{
+        margin-left: 270px;
+    }
+    .selected_person .persons_details{
+        font-size: 19px;
+    }
+    .info{
+        margin-left: 8px;
+    }
+    .better_team h1, .better_team h2, .line{
+        margin-left: 10px;
+    }
+}

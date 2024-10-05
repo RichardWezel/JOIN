@@ -1,0 +1,261 @@
+@media (max-width: 1240px) {
+  .addTaskForm_main {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .AddTask_head {
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .addTask_main {
+    justify-content: center;
+  }
+
+  .addTaskForm_main {
+    flex-direction: column;
+    gap: unset;
+  }
+
+  .addTaskForm {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .title_section {
+    width: 100%;
+  }
+
+  #description {
+    width: 100% !important;
+  }
+
+  #textarea#description {
+    width: 100%;
+  }
+
+  .description_main {
+    width: 100%;
+  }
+
+  .assign_head,
+  .category_head,
+  .description_head,
+  .prio_head,
+  .date_head,
+  .title_head,
+  .subtasks_head {
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .addTaskForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .priority_main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn_addTask_list {
+    width: 100% !important;
+    justify-content: space-around;
+  }
+
+  .AddTask_head {
+    font-size: 61px;
+    font-weight: 700;
+    margin-top: 48px;
+  }
+  .right {
+    padding-left: 0px;
+  }
+  #AddTaskContainer {
+    position: absolute;
+    width: 100%;
+    padding-bottom: 95px;
+  }
+
+  .dropbtn {
+    background-color: #ffffff;
+    color: black;
+    padding: 8px, 12px;
+    border: 1px solid var(--grey);
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .addTaskForm input {
+    background-image: url();
+    width: 100%;
+  }
+
+  .parting_line {
+    display: none;
+  }
+
+  .addTaskForms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .assigned_to_section_main {
+    margin-bottom: 16px;
+  }
+
+  .dropdown_content_category {
+    width: 100%;
+  }
+
+  .dropdown_content_category a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .subtasks_head {
+    margin-bottom: -10px;
+  }
+
+  .dropdown_content_category a:hover {
+    background-color: var(--bgdarkblue);
+    color: #ffff !important;
+    width: 100%;
+  }
+
+  .create_clear_task {
+    justify-content: space-between;
+  }
+
+  .requiredField {
+    display: flex;
+    margin-left: 16px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    margin-left: unset;
+    width: 100%;
+  }
+
+  .subtasklist_element {
+    width: 100%;
+  }
+
+  .create_clear_task {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    padding-top: 16px;
+    margin-top: unset;
+    padding-left: unset;
+    padding-right: 16px;
+    padding-bottom: 96px;
+    position: sticky;
+    bottom: 0;
+    background-color: rgba(246, 247, 248, 1);
+  }
+}
+
+@media (max-height: 700px) {
+  button {
+    font-size: 16px;
+  }
+
+  .create_clear_task {
+    padding-bottom: 60px;
+  }
+
+  .addTask_btn {
+    padding: 8px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .requiredField {
+    font-size: 12px;
+    margin-bottom: 20px !important;
+  }
+
+  .AddTask_head {
+    font-size: 32px !important;
+    font-weight: 700;
+    margin-top: -6px !important;
+  }
+}
+
+@media (max-width: 515px) {
+  .btn_transparent {
+    display: none;
+  }
+}
+
+@media (max-width: 385px) {
+  .addTask_btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .requiredField {
+    font-size: 14px !important;
+    margin-bottom: 17px;
+    margin-left: 12px;
+  }
+
+  .AddTask_head {
+    font-size: 45px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+  }
+
+  #btnUrgend,
+  #btnMedium,
+  #btnLow {
+    width: 33%;
+  }
+
+  .subtask {
+    height: 140px;
+  }
+}
+
+@media (max-width: 340px) {
+  .btn_addTask_list {
+    flex-direction: column;
+  }
+
+  #btnUrgend,
+  #btnMedium,
+  #btnLow {
+    width: 100%;
+  }
+}
+
+@media (max-width: 238px) {
+  .AddTask_head {
+    font-size: 32px;
+  }
+}

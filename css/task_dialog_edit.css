@@ -1,0 +1,389 @@
+/***** Global styles board dialog edit section *****/
+
+.distance {
+    margin-bottom: 32px;
+}
+
+#close_section_edit {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 0;
+}
+
+.header_text_edit_section {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.flexDirection {
+    flex-direction: column;
+    display: flex;
+}
+
+
+/***** Title Section *****/
+
+
+.errormessage_title {
+    font-size: 12px;
+    font-weight: 400;
+    color: #FF8190;
+    margin-top: 4px;
+}
+
+#title_edit {
+    margin-top: 8px;
+    border-radius: 10px;
+    background-image: none;
+    padding: 12px 20px 12px 21px;
+    border: 1px solid #ccc;
+    background-image: none;
+    border-radius: 10px;
+}
+
+#title_edit::placeholder {
+    color: #D1D1D1;
+}
+
+#title_edit:invalid {
+  border: 2px solid #FF8190;
+}
+
+.non_valide {
+    border: 2px solid #FF8190 !important;
+}
+
+
+
+/***** Description Section *****/
+
+#description_section_edit textarea {
+    background-image: url();
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 20px 12px 40px 21px;
+    cursor: auto;
+}
+
+#description_section_edit textarea::placeholder {
+    color: #D1D1D1;
+}
+
+#description_section_edit textarea:hover {
+
+    border-color: var(--blue);
+    outline: var(--blue);
+}
+
+/***** Due Date Section *****/
+
+#dueDate_section_edit input {
+    border-radius: 10px;
+    padding-left: 21px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+#edit_input_dueDate::placeholder {
+    color: #D1D1D1;
+}
+
+#errormessage_due_date {
+    font-size: 12px;
+    font-weight: 400;
+    color: #FF8190;
+    margin-top: 4px;
+    display: none;
+}
+
+
+/***** Priority Section *****/
+
+.header_text_edit_section_Opensans {
+    font-family: OpenSans-Bold;
+    font-size: 19px;
+    color: rgba(66, 82, 110, 1);
+    margin-bottom: 8px;
+}
+
+.prio_choice-section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn_addTask_list {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+
+.btn_addTask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:8px;
+    padding: 16px 12px 16px 12px;
+    height: 56px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.1);
+    min-width: 137.67px;
+  }
+
+  .btn_addTask img {
+    width: 20px;
+    height: 15px;
+  }
+
+.urgent_btn_inactive {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.urgent_btn_inactive:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.urgent_btn_active {
+    background-color: rgba(255, 61, 0, 1);
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.medium_btn_inactive {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.medium_btn_inactive:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.medium_btn_active {
+    background-color: rgba(255, 168, 0, 1);
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.low_btn_inactive {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.low_btn_inactive:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.low_btn_active {
+    background-color: rgba(122, 226, 41, 1);
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    font-weight: 700;
+}
+
+/***** Assigned to Section *****/
+
+#assignedTo_section_edit {
+    max-height: 338px;
+}
+
+.assigned_to {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+    .dropdown {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        flex-direction: column;
+        border-end-end-radius: 10px;
+            border-bottom-left-radius: 10px;
+    }
+
+        .dropdown_text {
+            color: black;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 7.5px 0px 7.5px 16px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .dropdown_text:hover {
+            border: solid 1px #A8A8A8;
+            border-radius: 10px;
+        }
+
+        #dropdown_input {
+            width: 100%;
+        }
+
+            #search_contacts_edit {
+                border: 1px solid #ccc;
+                background-image: none;
+                width: 100%;
+                border-radius: 10px;
+                padding: 7.5px 56px 7.5px 21px;
+                color: black;
+                font-size: 16px;
+                font-weight: 400;
+                cursor: pointer;
+            }
+
+            #search_contacts_edit:focus {
+                border: solid 1px var(--blue);
+                outline: var(--blue);
+            }  
+
+        .dopdown_img_inactive {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 7px;
+            right: 16px;
+            bottom: 12px;
+        }
+
+        .dopdown_img_inactive:hover {
+            background-color: rgb(235, 235, 235);
+            border-radius: 20px;
+        }
+
+        .selectedContacts {
+            width: 100%;
+            display: flex;
+            padding-top: 8px;
+            padding-right: 12px;
+            height: 115px;
+            overflow-x: auto;
+            gap: 8px;
+            z-index: 1;
+            background-color: white;
+            border-end-end-radius: 10px;
+            border-bottom-left-radius: 10px;
+            
+        }
+
+            .dropdown_contact_row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding: 7px 16px 7px 16px;
+                align-items: center;
+            }
+
+            .dropdown_contact_row:hover {
+                background-color: rgb(235, 235, 235);
+                border-radius: 10px;
+            }
+
+            /* include via js */
+            .contactOfTask {
+                background-color: var(--bgdarkblue);
+                border-radius: 10px;
+                color: white;
+                padding-top: 7px;
+                padding-bottom: 7px;
+            }
+
+             /* include via js */
+            .contactOfTask:hover {
+                background-color: var(--marineblue);
+            }
+
+                .dropdown_contact_image_name {
+                    font-size: 20px;
+                    font-weight: 400;
+                    align-items: center;
+                    display: flex;
+                }
+
+                .dropdown_contact_image_name img {
+                    cursor: pointer;
+                }
+
+                    .selected_member_cicle {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 42px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: white;
+                        font-size: 12px;
+                    }
+
+                    .dropdownNames {
+                        margin-left: 16px;
+                    }
+
+                .checkbox_edit {
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 3px;
+                }
+                
+                .checkbox_edit:hover {
+                    background-color: rgba(255, 255, 255,0.9);
+                    border-radius: 25px;
+                    cursor: pointer;
+                }
+
+                .checkbox_edit:hover a path  {
+                    stroke: var(--bgdarkblue);
+                }
+
+
+@media(max-width: 528px) {
+    
+    .btn_addTask_list {
+        justify-content: space-between;
+    }
+    
+    .btn_addTask_list a{
+        font-size: 16px;
+    }
+
+    .btn_addTask {
+        height: unset !important;
+        min-width: 104.67px !important;
+    }
+}
+
+@media(max-width: 440px) {
+    .task_dialog {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .btn_addTask img {
+        width: 17px;
+        height: 12px;
+    }
+}

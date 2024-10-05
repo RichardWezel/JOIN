@@ -1,0 +1,58 @@
+@media (max-width: 1000px) {
+  .container {
+    height: 80%;
+    margin-top: 56px;
+    width: 85%;
+    max-width: 430px;
+  }
+
+  .sign_up_section {
+    width: 100%;
+    max-width: 396px;
+    height: 100%;
+    padding: 24px 0 0 0;
+    gap: 24px;
+  }
+
+  h1 {
+    font-size: 47px;
+    line-height: 56.4px;
+  }
+
+  hr {
+    width: 88px;
+  }
+
+  .input_area {
+    max-width: 364px;
+    width: 85%;
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .btn_sign_up {
+    width: 180px;
+    height: 51px;
+    padding: 4px 0px 4px 0px;
+  }
+
+  .btn_sign_up h1 {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+    top: 16px;
+    left: 24px;
+  }
+
+  #register_successfull {
+    bottom: 375px;
+  }
+
+  .legal_section {
+    bottom: 16px;
+  }
+}

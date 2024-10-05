@@ -1,0 +1,193 @@
+/***** Subtask Section *****/
+
+#subtask_section_edit {
+    margin-top: 30px;
+}
+
+.input_section_edit_subtask {
+    position: relative;
+}
+
+    #buttons_subtask_edit {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        bottom: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+       .close_subtask_adding {
+        height: 24px;
+        width: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       } 
+
+       .line_subtask_input {
+        background-color: #D1D1D1;
+        height: 24px;
+        width: 1px;
+        margin-left: 8px;
+        margin-right: 8px;
+       }
+
+       .check_subtask_adding {
+        height: 24px;
+        width: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+
+.add_btn_subtask_edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+}
+
+.add_btn_subtask_edit:hover {
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+}
+
+#subtask_section_edit input {
+    border: 1px solid #ccc;
+    background-image: none;
+    width: 100%;
+    border-radius: 10px;
+    padding: 6.5px 50px 6.5px 21px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#subtask_section_edit input:focus {
+    border: solid 1px var(--blue);
+    outline: var(--blue);
+}  
+
+#subtask_section_edit input::placeholder {
+    color: #D1D1D1;
+}  
+
+    .unordered-list_subtasks {
+        margin-top: 8px;
+
+    }
+
+            .subtask_list_row:hover {
+                background-color: rgb(235, 235, 235);
+                border-radius: 10px;
+            }
+
+            .subtask_list_row_main:hover .edit_btn_subtask,
+            .subtask_list_row_main:hover .line_subtask, 
+            .subtask_list_row_main:hover .delete_btn_subtask {
+                display: flex;
+            }
+
+            .subtask_list_row_main {
+                cursor: pointer;
+            }
+
+                .subtask_list_row {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                }
+
+                    .subtask_name_edit {
+                        display: flex;
+                        padding-top: 6px;
+                        padding-bottom: 6px;
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+
+                        .point {
+                        display: flex;
+                        margin-right: 10px;
+                        padding-left: 10px;
+                        
+                        }
+
+                    .subtask_delete_and_edit_editDialog {
+                        display: flex;
+                        padding-right: 16px;
+                        align-items: center;
+                    }
+
+                        .subtask_delete_and_edit_editDialog a:hover path {
+                            fill: var(--blue); 
+                            cursor: pointer; 
+                        }
+
+                        .edit_btn_subtask {
+                            display: none;
+                        }
+
+                        .line_subtask {
+                            background-color: #D1D1D1;
+                            height: 24px;
+                            width: 1px;
+                            margin-left: 8px;
+                            margin-right: 8px;
+                            display: none;
+                        }
+
+                        .delete_btn_subtask {
+                            display: none;
+                        }
+
+            .edit_mode_list_row_subtask {
+               cursor: pointer;
+            }
+            
+                .edit_input_list_row_main {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 12px;
+                    border-bottom: 1px solid var(--blue) !important;
+                 
+                }
+
+                    .edit_input_list_row {
+                        border-left: none !important;
+                        border-top: none !important;
+                        border-right: none !important;
+                        border-bottom: none !important;
+                        border-radius: 0px !important;
+                        background-image: none;
+                        width: 100%;
+                        padding: 12px 50px 12px 21px;
+                        color: black;
+                        font-size: 16px;
+                        font-weight: 400;
+                        cursor: pointer;
+                    }
+
+                    .edit_delete_and_confirm_list_row {
+
+                        display: flex;
+                        padding-right: 16px;
+                        align-items: center;
+                    }
+
+                        .line_subtask_edit {
+                            background-color: #D1D1D1;
+                            height: 24px;
+                            width: 1px;
+                            margin-left: 8px;
+                            margin-right: 8px;
+                            display: flex;
+                        }

@@ -1,0 +1,455 @@
+#input_title_addTask_dialog {
+    margin-top: 8px;
+    border-radius: 10px;
+    background-image: none;
+    padding: 12px 20px 12px 21px;
+    border: 1px solid #ccc;
+    background-image: none;
+    border-radius: 10px;
+}
+
+#input_title_addTask_dialog::placeholder {
+    color: #D1D1D1;
+}
+
+#input_title_addTask_dialog:invalid {
+  border: 2px solid #FF8190;
+}
+
+#input_description_addTask_dialog {
+    background-image: url();
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 20px 12px 40px 21px;
+    cursor: auto;
+}
+
+#input_description_addTask_dialog::placeholder {
+    color: #D1D1D1;
+}
+
+#input_description_addTask_dialog:hover {
+    border-color: var(--blue);
+    outline: var(--blue);
+}
+
+#dropdown_input_addTask {
+    width: 100%;
+}
+
+#search_contacts_edit_addTask {
+    border: 1px solid #ccc;
+    background-image: none;
+    width: 100%;
+    border-radius: 10px;
+    padding: 12px 56px 12px 21px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#search_contacts_edit_addTask:focus {
+    border: solid 1px var(--blue);
+    outline: var(--blue);
+} 
+
+#search_contacts_edit_addTask input::placeholder {
+    color: #D1D1D1 !important;
+} 
+
+#dropdown_input_addTask input::placeholder {
+    color: #D1D1D1 !important;
+} 
+
+#edit_input_dueDate_addTask {
+    border-radius: 10px;
+    padding-left: 21px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+#errormessage_due_date_addTask {
+    font-size: 12px;
+    font-weight: 400;
+    color: #FF8190;
+    margin-top: 4px;
+    display: none;
+}
+
+.addTaskForm span {
+    color: red;
+}
+
+.category {
+    position: relative;
+    width: 100%;
+  
+  }
+  
+  .dropdown_category {
+    width: 100%;
+    border-radius:10px;
+    font-size: 16px;
+    color:#000;
+    background-color: white;
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    padding: 8px 12px;
+  }
+  
+  
+  .dropdown_content_category {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown_content_category a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dropdown_content_category a:hover {
+    background-color: var(--bgdarkblue);
+    color: #ffff !important;
+    width: 100%;
+  }
+
+  .red_star {
+    color: red;
+  }
+  
+  #category_addTask_dialog {
+    position: relative;
+  }
+
+  .category_name_addTask {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 12px 0px 12px 16px;
+  }
+
+  .category_name_addTask:hover {
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 12px 0px 12px 16px;
+    cursor: pointer;
+  }
+
+  .boxShadow_and_borderRadius {
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    border-start-start-radius: 10px;
+  }
+
+  #addTask_dialog_subtasks input {
+    border: 1px solid #ccc;
+    background-image: none;
+    width: 100%;
+    border-radius: 10px;
+    padding: 6.5px 50px 6.5px 21px;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: auto;
+    position: relative;
+}
+
+#addTask_dialog_subtasks input:focus {
+    border: solid 1px var(--blue);
+    outline: var(--blue);
+}  
+
+#addTask_dialog_subtasks input::placeholder {
+    color: #D1D1D1;
+}  
+
+#buttons_subtask_edit_addTask {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addTask_dialog_container {
+    display: flex;
+    flex-direction: column;
+}
+
+    .addTask_dialog_box_head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 32px;
+    }
+
+        .header_text_addTask_dialog {
+            font-size: 61px;
+            font-weight: 700;
+            color: #000;
+        }
+
+    .addTask_dialog_box_middle {
+        display: flex;
+    }
+
+        .addTask_dialog_box_content_left {
+            display: flex;
+            flex-direction: column;
+            width: 440px;
+        }
+
+        #line_addTask_dialog {
+            display: flex;
+            width: 1px;
+            margin-left: 48.25px;
+            margin-right: 48.25px;
+            background-color: #000;
+        }
+
+        .addTask_dialog_box_content_right {
+            display: flex;
+            flex-direction: column;
+            width: 440px;
+        }
+
+    #addTask_dialog_createTask {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #addTask_dialog_assignedTo {
+        height: 194px;
+        overflow: hidden;
+        border-radius: 10px;
+        padding: 1px;
+    }
+
+    .btn_transparent:hover span svg path{
+        fill: var(--blue); 
+        cursor: pointer; 
+          
+    }
+
+    .circleImg {
+        height: 42px;
+        width: 42px;
+        padding: 2px;
+    }
+
+    #addTask_dialog_subtasks {
+        height: 154px;
+        overflow: hidden;
+    }
+
+    #added_subtasks_addTask {
+        width: 100%;
+        padding-top: 8px;
+        max-height: 80px;
+        overflow: auto;
+        gap: 8px;
+        border-radius: 10px; 
+    }
+
+
+.toastMessageAddTask {
+    background-color: var(--bgdarkblue);
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    display: flex;
+    width: 308px;
+    padding: 16px 24px 16px 24px;
+    border-radius: 16px;
+    align-items: center;
+    position: fixed;
+    top: 17px;
+    z-index: 99;
+    right: 150px;
+}
+
+    .toastMessageAddTask_text {
+        display: flex;
+        margin-right: 35px;
+    }
+
+    .toastMessageAddTask_img path{
+        fill: white;
+    }
+
+    .toastMessageAddTask_img {
+        display: flex;
+    }
+
+    .category_section {
+        position: relative;
+    }
+
+    #dropdown_category_addTask {
+        position: absolute;
+        background-color: white;
+        z-index: 10;
+        width: 100%;
+        box-shadow: 0px 0px 14px 3px #0000000A;
+        border-end-end-radius: 10px;
+    }
+
+    @media (max-width: 1000px) {
+        .toastMessageAddTask {
+            top: 17px;
+            right: 88px;
+        }
+    }
+
+
+    @media (max-width: 1085px) {
+        #line_addTask_dialog {
+            display: none;
+        }
+
+        .addTask_dialog_container {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .addTask_dialog_box_middle {
+            flex-direction: column;
+        }
+
+        #addTask_dialog_assignedTo {
+            height: unset;
+        }
+
+        #addTask_dialog_subtasks {
+            height: unset;
+        }
+
+        .btn_transparent {
+            display: none;
+        }
+
+        #task_dialog_container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        #addTask_dialog_createTask {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-top: 16px;
+            margin-top: unset;
+            padding-left: unset;
+            padding-right: 16px;
+            padding-bottom: 16px;
+            position: sticky;
+            bottom: 0;
+            background-color: var(--bgwhite);
+        }
+
+         #addTask_dialog_createTask p{
+            padding-left: 16px;
+        }
+
+        .create_clear_task {
+            flex-direction: column;
+        }
+
+        .create_clear_task p {
+            margin-bottom: 20px;
+        }
+
+        #addTask_dialog_createTask {
+            margin-bottom: 0px;
+        }
+
+        .addTask_dialog_box_head {
+            flex-direction: column-reverse;
+        }
+
+        #task_dialog_container {
+            padding-top: 48px !important;
+        }
+    }
+@media(max-width:550px){
+
+    .task_dialog{
+        width: 460px;
+    }
+    .confirm_btn_edit{
+        margin-left: 330px;
+    }
+}
+
+@media (max-width:480px) {
+        .toastMessageAddTask {
+            top: 146px;
+            right: -135px;
+            transform: translate(-50%, -50%);
+        }
+
+        .addTask_dialog_box_content_left {
+            width: 100%;
+        }
+
+        .addTask_dialog_box_content_right {
+            width: 100%;
+        }
+        .task_dialog{
+            width: 380px;
+        }
+        .confirm_btn_edit{
+            margin-left: 250px;
+        }
+    }
+
+    @media (max-width: 385px) {
+        .toastMessageAddTask {
+            top: 146px;
+            right: -31%;
+            transform: translate(-50%, -50%);
+        }
+        button {
+            font-size: 16px;
+        }
+
+        #addTask_dialog_createTask p{
+                font-size: 12px;
+        }
+
+        .btn_addTask {
+        height: unset !important;
+        min-width: 86.67px !important;
+    }
+
+        .btn_addTask_list a {
+        font-size: 12px;
+    }
+    .btn_addTask_list{
+        justify-content: unset;
+        gap: 8px;
+    }
+    }
+@media(max-width:370px){
+    .confirm_btn_edit{
+        margin-left: 190px;
+    }
+}
+
+    

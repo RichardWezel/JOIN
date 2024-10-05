@@ -1,0 +1,276 @@
+.dialog_container {
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+    .task_dialog {
+        /* width: 525px; */
+        height: fit-content;
+        border-radius: 30px;
+        background-color: white;
+        padding: 48px 40px 0px 40px;
+        max-height: 95%;
+        overflow: auto;
+        right: -525px;
+        animation-name: moveInRightDialog;
+        animation-timing-function: ease-out;
+        animation-duration: 400ms;
+    }
+
+    #task_dialog_container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    @keyframes moveInRightDialog {
+        from {
+            transform: translateX(400%);
+        }
+    
+        to {
+            transform: translateX(0);
+        }
+    }
+
+        .category_close {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .close {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .close:hover {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(209, 209, 209, 0.4);
+            border-radius: 20px;
+        }
+
+            .line {
+                position: absolute;
+                width: 1px;
+                height: 17px;
+                background-color: black;
+              }
+      
+            .line.horizontal {
+              transform: rotate(45deg);
+            }
+          
+            .line.vertical {
+              transform: rotate(-45deg);
+            }
+        
+        .task_title_dialog {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: black;
+            font-size: 36px;
+            line-height: 43.2px;
+            margin-top: 24px;
+            word-wrap: break-word;
+        }
+
+        .task_description_dialog {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: black;
+            font-size: 20px;
+            line-height: 24px;
+            margin-top: 24px;
+        }
+
+        .due_Date_dialog {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: black;
+            font-size: 20px;
+            line-height: 24px;
+            margin-top: 24px;
+        }
+
+            .duedate {
+                margin-left: 25px;
+            }
+        
+        .priority_dialog {
+            display: flex;
+            align-items: center;
+            margin-top: 24px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: black;
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+            .priority_dialog span {
+                margin-left: 50px;
+            }
+
+            #prio_image {
+                margin-left: 10px;
+                padding-top: 4px;
+            }
+
+        .assigned_to {
+            display: flex;
+            flex-direction: column;
+            margin-top: 24px;
+        }
+
+            .table_assigedto table {
+                padding: 7px 16px 7px 16px;
+                border-spacing:0 15px;
+            }
+
+            .member_name_assiged_to {
+                padding-left: 16px;
+                font-family: 'OpenSans', sans-serif;
+            }
+
+            .you {
+                margin-left: 5px;
+              }
+
+        .subtasks_main {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: black;
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+            .subtask_container {
+                display: flex;
+                flex-direction: column;
+                margin-top: 6.5px;
+                
+            }
+
+                .Subtasks {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 8px;
+                    padding: 4px 16px 4px 16px;
+                }
+
+                .Subtasks span{
+                    padding-left: 16px;
+                }
+
+                .Subtasks:hover a {
+                    background-color: #D1D1D1;
+                    border-radius: 10px;
+                }
+
+                .Subtasks:hover {
+                    background-color: rgb(238, 238, 238);
+                    border-radius: 10px;
+                }
+
+                .checkbox1 img {
+                    width: 16px;
+                    height: 16px;
+                }
+
+                .checkbox1 {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                
+        
+        .delete_and_edit_section {
+            width: 100%;
+            display: flex;
+            margin-top: 24px;
+            margin-bottom: 32px;
+            position: sticky;
+        }
+
+            .delete_and_edit {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                width: 100%;
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .delete_and_edit img{
+                width: 16px;
+                height: 18px;
+                margin-right: 8px;
+            }
+
+            .delete_and_edit a{
+                display: flex;
+                align-items: center;
+                color: var(--bgdarkblue);
+            }
+
+            .delete_and_edit a:hover{
+                font-weight: 700;
+                color: var(--blue);
+            }
+
+            .delete_and_edit a:hover path {
+                fill: var(--blue); 
+                cursor: pointer; 
+            }
+
+            .delet_text {
+                margin-left: 8px;
+            }
+
+                .line_task {
+                    background-color: #D1D1D1;
+                    height: 24px;
+                    width: 1px;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                }
+
+                .borderAnimation {
+                    height: 100px;
+                    width: 200px;
+                    background: linear-gradient(90deg, blue 50%, transparent 50%), linear-gradient(90deg, blue 50%, transparent 50%), linear-gradient(0deg, blue 50%, transparent 50%), linear-gradient(0deg, blue 50%, transparent 50%);
+                    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+                    background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+                    background-position: 0px 0px, 200px 100px, 0px 100px, 200px 0px;
+                    padding: 10px;
+                    animation: border-dance 4s infinite linear;
+                  }
+                  @keyframes border-dance {
+                    0% {
+                      background-position: 0px 0px, 300px 116px, 0px 150px, 216px 0px;
+                    }
+                    100% {
+                      background-position: 300px 0px, 0px 116px, 0px 0px, 216px 150px;
+                    }
+                  }

@@ -1,0 +1,63 @@
+
+<div class="head_main_navbar">
+    <div id="toastMessageLogOut" class="toast_message_logout d-none">The User is now logout!</div>
+    <img class="logo_join_responsiv" src="/assets/img/logo.svg" alt="" srcset="">
+    <div class="headnav_text">
+        Kanban Project Management Tool
+    </div>
+    <div class=" headnavbar_icon">
+       <a href="/help.html"><img id="navbarHeadIcon_help" src="/assets/img/HelpDefault.svg" 
+        onmouseover="this.src='assets/img/help.svg'" 
+        onmouseleave="this.src='assets/img/HelpDefault.svg'"></a>
+        <div class="account_and_navbar_section">
+            <div onclick="footerToggle()" id="navbarHeadIcon"></div>
+            <nav id="navbar" class="">
+                <a onclick="hideFooterMenu()"           class="help"          href="help.html">Help</a>
+                <a onclick="hideFooterMenu()"           id="legalNotice"      href="legal_notice.html">Legal notice</a>
+                <a onclick="hideFooterMenu()"           id="privacyPolicy"    href="privacy_policy.html">Privacy Policy</a>
+                <a onclick="hideFooterMenu(); logOut()" id="logOut"           onclick="logOut()">Log out</a>
+            </nav>
+         </div> 
+    </div>
+</div>
+
+<aside class="sidebar">
+    <section class="section_sidebar">
+        <img class="logo_sidebar" src="/assets/img/join_logo_vector.svg" alt="" srcset="">
+        
+       
+    <div class="side_navbar">
+
+        <a class="side_navbar_section" id="summary" href="/summary.html">
+            <img src="/assets/img/summary_icon.svg" alt="">
+            <div>Summary</div>
+        </a>
+        <a class="side_navbar_section" id="addTask" href="/addTask.html">
+            <img src="/assets/img/add_task_icon.svg" alt="">
+            <div>Add Task</div>
+        </a>
+
+        <a class="side_navbar_section" id="board" href="/board.html">
+            <img src="/assets/img/board_icon.svg" alt="">
+            <div>Board</div>
+        </a>
+        <a class="side_navbar_section" id="conracts" href="/contacts.html">
+            <img src="/assets/img/contacts_icon.svg" alt="">
+            <div>Contacts</div>
+        </a>
+    </div>
+    <div>
+        <div class="sidebar_footer">
+            <div>
+                <a id="privacyPolicy" class="side_navbar_section" href="privacy_policy.html">Privacy Policy</a>
+            </div>
+            <div>
+                <a id="legalNotice" class="side_navbar_section" href="legal_notice.html">Legal notice</a>
+            </div>
+        </div>
+        
+    </div>
+
+    </section>
+
+</aside>
