@@ -1,0 +1,5 @@
+# Patterns are matched against the repository-relative path,
+# so they have to include the Frontend/ prefix.
+Frontend/up.sh
+Frontend/up.bat
+Frontend/package-lock.json
