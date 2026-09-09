@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# Commits all changes, pushes them to GitHub and deploys the Frontend
-# to the All-Inkl webspace via git-ftp.
+# Commits changes below Frontend/, pushes them to GitHub and deploys them
+# to the All-Inkl webspace via git-ftp. Changes in Backend/ are left alone.
 #
 # Usage: ./up.sh "commit message"
 
@@ -17,7 +17,7 @@ fi
 cd "$(git rev-parse --show-toplevel)"
 
 git pull
-git add -A
+git add -A -- Frontend
 
 if git diff --cached --quiet; then
 	echo "Nothing to commit, deploying current state."
