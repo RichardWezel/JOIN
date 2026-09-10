@@ -82,6 +82,13 @@ button:hover {
   transform: scale(1.02);
 }
 
+/* Sichtbarer Fokusrahmen fuer Tastaturbedienung - hebt das outline: none
+   oben gezielt wieder auf, ohne bei Mausklicks zu stoeren. */
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
 .btn_grey {
   background-color: var(--bgdarkblue);
   color: white;

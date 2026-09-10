@@ -75,10 +75,10 @@
         <header class="board_header">
             <div class="header_text_main">
                 <div class="header_text">Board</div>
-                <a onclick="openAddTaskDialog(); redirectToTaskPage()" class="add_task_btn_mobile">
+                <button type="button" onclick="openAddTaskDialog(); redirectToTaskPage()" class="add_task_btn_mobile" aria-label="Add task">
                     <div class="line_add_btn_horizont"></div>
                     <div class="line_add_btn_vertical"></div>
-                </a>
+                </button>
             </div>
             <div class="search_add">
                 <div class="search">
@@ -86,7 +86,7 @@
                     <hr>
                     <div class="search_image" onclick="searchTask()"><img src="assets/img/search-2.svg" alt=""></div>
                 </div>
-                <a onclick="openAddTaskDialog()" class="add_task_btn">
+                <button type="button" onclick="openAddTaskDialog()" class="add_task_btn">
                     <div class="text_add_btn">Add task</div>
                     <div class="plus_add_btn">
                         <div>
@@ -94,7 +94,7 @@
                             <div class="line_add_btn_vertical"></div>
                         </div>
                     </div>
-                </a>
+                </button>
             </div>
         </header>
 
@@ -106,20 +106,26 @@
                     <div class="column_head_main">
                         <div class="column_head">
                             <div class="column_head_text">To do</div>
-                            <a id="column_head_add_btn" onclick="openAddTaskDialog('toDo')" class="column_head_add_btn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <button type="button" id="column_head_add_btn" onclick="openAddTaskDialog('toDo')" class="column_head_add_btn" aria-label="Add task to To do">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
                                     <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                            </a>
-                            <a id="btn_addTask_mobile_toDo" onclick="redirectToTaskPage('toDo')" class="column_head_add_btn_mobile" data-status="toDo">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            </button>
+                            <button 
+                                type="button" 
+                                id="btn_addTask_mobile_toDo" 
+                                onclick="redirectToTaskPage('toDo')" 
+                                class="column_head_add_btn_mobile" 
+                                data-status="toDo" 
+                                aria-label="Add task to To do">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
                                     <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div id="task_container_ToDo" class="task_container"></div>
@@ -130,20 +136,20 @@
                     <div class="column_head_main">
                         <div class="column_head">
                             <div class="column_head_text">In progress</div>
-                            <a id="add_btn_InProgress" onclick="openAddTaskDialog('inProgress')" class="column_head_add_btn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <button type="button" id="add_btn_InProgress" onclick="openAddTaskDialog('inProgress')" class="column_head_add_btn" aria-label="Add task to In progress">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
                                     <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                            </a>
-                            <a id="btn_addTask_mobile_inProgress" onclick="redirectToTaskPage('inProgress')" class="column_head_add_btn_mobile" data-status="inProgress">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            </button>
+                            <button type="button" id="btn_addTask_mobile_inProgress" onclick="redirectToTaskPage('inProgress')" class="column_head_add_btn_mobile" data-status="inProgress" aria-label="Add task to In progress">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
                                     <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div id="task_container_InProgress" class="task_container"></div>
@@ -154,20 +160,20 @@
                     <div class="column_head_main">  
                         <div class="column_head">
                             <div class="column_head_text">Await feedback</div>
-                            <a id="add_btn_AwaitFeedback" onclick="openAddTaskDialog('awaitFeedback')" class="column_head_add_btn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <button type="button" id="add_btn_AwaitFeedback" onclick="openAddTaskDialog('awaitFeedback')" class="column_head_add_btn" aria-label="Add task to Await feedback">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
                                     <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                            </a>
-                            <a id="btn_addTask_mobile_awaitFeedback" onclick="redirectToTaskPage('awaitFeedback')" class="column_head_add_btn_mobile" data-status="awaitFeedback">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            </button>
+                            <button type="button" id="btn_addTask_mobile_awaitFeedback" onclick="redirectToTaskPage('awaitFeedback')" class="column_head_add_btn_mobile" data-status="awaitFeedback" aria-label="Add task to Await feedback">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
                                     <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                            </a>
+                            </button>
                         </div>
                     </div>  
                     <div id="task_container_AwaitFeedback" class="task_container"></div>
@@ -178,20 +184,20 @@
                     <div class="column_head_main">
                         <div class="column_head">
                             <div class="column_head_text">Done</div>
-                            <a id="add_btn_Done" onclick="openAddTaskDialog('done')" class="column_head_add_btn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <button type="button" id="add_btn_Done" onclick="openAddTaskDialog('done')" class="column_head_add_btn" aria-label="Add task to Done">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
                                     <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                            </a>
-                            <a id="btn_addTask_mobile_done" onclick="redirectToTaskPage('done')" class="column_head_add_btn_mobile" data-status="done">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            </button>
+                            <button type="button" id="btn_addTask_mobile_done" onclick="redirectToTaskPage('done')" class="column_head_add_btn_mobile" data-status="done" aria-label="Add task to Done">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
                                     <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                                     </svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div id="task_container_Done" class="task_container"></div>
