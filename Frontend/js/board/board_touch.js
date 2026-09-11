@@ -42,6 +42,10 @@ function touchStart(taskId, status, event) {
  * @param {TouchEvent} event - The event object representing the touch end event.
  */
 function touchEnd(event) {
+    // The listener sits on document, so every tap on the page ends up here.
+    // Only touches that started on a task card (see touchStart) are ours -
+    // for everything else the browser must be free to fire its click.
+    if (!dragging) return;
     dragging = false;
     currentTaskId = null;
     let touchEndX = event.changedTouches[0].clientX;
@@ -111,26 +115,4 @@ function handleTouchMove(event) {
 // Attach touchmove and touchend event listeners to the document
 document.addEventListener('touchmove', handleTouchMove);
 document.addEventListener('touchend', touchEnd);
-
-/**
- * Handles the click event for addTask button in column "to Do" in mobile mode.
- */
-document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.column_head_add_btn_mobile');
-
-    const handleClick = function(event) {
-        if (window.innerWidth <= 1000) {
-            const status = event.currentTarget.getAttribute('data-status');
-            redirectToTaskPage(status);
-        }
-    };
-
-    buttons.forEach(button => {
-        button.addEventListener('click', handleClick);
-        button.addEventListener('touchstart', function(event) {
-            event.preventDefault(); // Prevent the default touch behavior to ensure the function is called
-            handleClick(event);
-        });
-    });
-});
 
