@@ -41,13 +41,13 @@ async function setUserInitialsAtHeader() {
     accountLogo.innerHTML = 'G';
   } else if (typeof currentUser.name.secondName == "undefined" || typeof currentUser.name.secondName == '') {
     let firstName = currentUser.name.firstName;
-    firstName = firstName.charAt(0);
-    accountLogo.innerHTML = `${firstName}`;
+    let firstNameFirstCharacter = firstName.charAt(0);
+    accountLogo.innerHTML = `${firstNameFirstCharacter}`;
   } else {
     let firstName = currentUser.name.firstName;
-    firstName = firstName.charAt(0);
+    let firstNameFirstCharacter = firstName.charAt(0);
     let secondName = currentUser.name.secondName;
-    secondName = secondName.charAt(0);
-    accountLogo.innerHTML = `${firstName} ${secondName}`;
+    let secondNameFirstCharacter = secondName.charAt(0);
+    accountLogo.innerHTML = `${firstNameFirstCharacter} ${secondNameFirstCharacter}`;
   }
 }

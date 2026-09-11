@@ -19,6 +19,8 @@ function hideFooterMenu() {
  */
 async function logOut() {
   currentUser = [];
+  currentUserProfile = null;
+  currentUserId = '';
   clearAuthToken();
   toastMessageLogOut();
   await timeout (750);

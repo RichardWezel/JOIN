@@ -39,14 +39,25 @@ function timeout(ms) {
 
 const TOKEN_KEY = 'join_token';
 
+/**
+ * Retrieves the authentication token from localStorage.
+ * @returns {String|null} - The authentication token or null if not found.
+ */
 function getAuthToken() {
   return localStorage.getItem(TOKEN_KEY);
 }
 
+/**
+ * Sets the authentication token in localStorage.
+ * @param {String|null} token - The authentication token or null to remove it.
+ */
 function setAuthToken(token) {
   localStorage.setItem(TOKEN_KEY, token);
 }
 
+/**
+ * Removes the authentication token from localStorage.
+ */
 function clearAuthToken() {
   localStorage.removeItem(TOKEN_KEY);
 }
@@ -133,6 +144,11 @@ function legacyDateToIso(legacyDate) {
  */
 let contacts_global = [];
 
+/**
+ * Maps a contact object from the API shape to the legacy contact shape.
+ * @param {Object} contact - The contact object from the API.
+ * @returns {Object} - The mapped contact object.
+ */
 function mapContactFromApi(contact) {
   return {
     id: contact.id,
@@ -146,6 +162,11 @@ function mapContactFromApi(contact) {
   };
 }
 
+/**
+ * Maps a contact object from the legacy shape to the API shape.
+ * @param {Object} contact - The contact object in the legacy shape.
+ * @returns {Object} - The mapped contact object for the API.
+ */
 function mapContactToApi(contact) {
   return {
     first_name: contact.firstName,
@@ -156,6 +177,9 @@ function mapContactToApi(contact) {
   };
 }
 
+/**
+ * Fetches all contacts from the server and updates the contacts_global variable.
+ */
 async function getContactsFromServer() {
   try {
     const data = await apiRequest('/contacts/');
@@ -166,6 +190,9 @@ async function getContactsFromServer() {
   }
 }
 
+/**
+ * Sorts the contacts_global array alphabetically by first name.
+ */
 function sortContacts() {
   contacts_global.sort((a, b) => {
     const firstNameA = a.name.firstName.toLowerCase();
@@ -176,14 +203,30 @@ function sortContacts() {
   });
 }
 
+/**
+ * Creates a new contact on the server.
+ * @param {Object} contact - The contact object to create.
+ * @returns {Promise} - A promise resolving to the result of the API request.
+ */
 async function createContactOnServer(contact) {
   return apiRequest('/contacts/', { method: 'POST', body: mapContactToApi(contact) });
 }
 
+/**
+ * Updates a contact on the server.
+ * @param {string} id - The ID of the contact to update.
+ * @param {Object} contact - The updated contact object.
+ * @returns {Promise} - A promise resolving to the result of the API request.
+ */
 async function updateContactOnServer(id, contact) {
   return apiRequest(`/contacts/${id}/`, { method: 'PATCH', body: mapContactToApi(contact) });
 }
 
+/**
+ * Deletes a contact from the server by its ID.
+ * @param {string} id - The ID of the contact to delete.
+ * @returns {Promise} - A promise resolving to the result of the API request.
+ */
 async function deleteContactOnServerById(id) {
   return apiRequest(`/contacts/${id}/`, { method: 'DELETE' });
 }
@@ -202,6 +245,11 @@ function getTaskById(id) {
   return tasks.find((task) => task.id === id);
 }
 
+/**
+ * Maps a task object from the API to the legacy task shape.
+ * @param {Object} task - The task object from the API.
+ * @returns {Object} - The mapped task object.
+ */
 function mapTaskFromApi(task) {
   return {
     id: task.id,
@@ -239,6 +287,11 @@ function resolveContactIds(taskContacts) {
     .filter((id) => id !== null);
 }
 
+/**
+ * Maps a task object to the API shape.
+ * @param {Object} task - The task object to map.
+ * @returns {Object} - The mapped task object.
+ */
 function mapTaskToApi(task) {
   return {
     title: task.title,
@@ -255,6 +308,9 @@ function mapTaskToApi(task) {
   };
 }
 
+/**
+ * Fetches all tasks from the server and updates the tasks variable.
+ */
 async function getTasksFromServer() {
   try {
     const data = await apiRequest('/tasks/');
@@ -264,22 +320,50 @@ async function getTasksFromServer() {
   }
 }
 
+/**
+ * Creates a new task on the server.
+ * @param {Object} task - The task object to create.
+ * @returns {Promise} - A promise resolving to the result of the API request.
+ */
 async function createTaskOnServer(task) {
   return apiRequest('/tasks/', { method: 'POST', body: mapTaskToApi(task) });
 }
 
+/**
+ * Updates a task on the server.
+ * @param {string} id - The ID of the task to update.
+ * @param {Object} task - The updated task object.
+ * @returns {Promise} - A promise resolving to the result of the API request.
+ */
 async function updateTaskOnServer(id, task) {
   return apiRequest(`/tasks/${id}/`, { method: 'PATCH', body: mapTaskToApi(task) });
 }
 
+/**
+ * Deletes a task from the server by its ID.
+ * @param {string} id - The ID of the task to delete.
+ * @returns {Promise} - A promise resolving to the result of the API request.
+ */
 async function deleteTaskOnServerById(id) {
   return apiRequest(`/tasks/${id}/`, { method: 'DELETE' });
 }
 
+/**
+ * Patches the status of a task on the server.
+ * @param {string} id - The ID of the task to patch.
+ * @param {string} status - The new status of the task.
+ * @returns {Promise} - A promise resolving to the result of the API request.
+ */
 async function patchTaskStatus(id, status) {
   return apiRequest(`/tasks/${id}/`, { method: 'PATCH', body: { status } });
 }
 
+/**
+ * Toggles the completion status of a subtask on the server.
+ * @param {string} subtaskId - The ID of the subtask to toggle.
+ * @param {boolean} done - The new completion status of the subtask.
+ * @returns {Promise} - A promise resolving to the result of the API request.
+ */
 async function toggleSubtaskOnServer(subtaskId, done) {
   return apiRequest(`/tasks/subtasks/${subtaskId}/`, { method: 'PATCH', body: { done } });
 }
@@ -294,18 +378,52 @@ async function toggleSubtaskOnServer(subtaskId, done) {
 let currentUser = [];
 
 /**
+ * Raw current-user payload returned by the API. This stores the complete
+ * user JSON from the backend so the frontend can reuse it without another
+ * /auth/me/ fetch in every page.
+ */
+let currentUserProfile = null;
+
+/**
  * Id of the contact (in contacts_global) representing the current user, or 999 for guests.
  */
 let currentUserId = '';
 
+/**
+ * Maps a user object to the legacy current user shape.
+ * @param {Object} user - The user object to map.
+ * @returns {Object} - The mapped user object.
+ */
 function mapUserToLegacyCurrentUser(user) {
   return {
     id: user.id,
-    name: { firstName: user.first_name, secondName: user.last_name, color: user.color },
+    name: { 
+      firstName: user.first_name, 
+      secondName: user.last_name, 
+      color: user.color 
+    },
     mail: user.email,
   };
 }
 
+/**
+ * Saves the API user payload in the shared frontend store and mirrors
+ * the older UI shape into currentUser for the existing legacy pages.
+ */
+function storeCurrentUserProfile(user) {
+  currentUserProfile = user || null;
+  currentUser = user ? mapUserToLegacyCurrentUser(user) : [];
+}
+
+/**
+ * Registers a new user.
+ * @param {Object} param0 - The user details.
+ * @param {string} param0.firstName - The first name of the user.
+ * @param {string} param0.secondName - The second name of the user.
+ * @param {string} param0.mail - The email of the user.
+ * @param {string} param0.password - The password of the user.
+ * @returns {Object} - The registered user object.
+ */
 async function registerUser({ firstName, secondName, mail, password }) {
   const data = await apiRequest('/auth/register/', {
     method: 'POST',
@@ -318,35 +436,41 @@ async function registerUser({ firstName, secondName, mail, password }) {
     },
   });
   setAuthToken(data.token);
-  currentUser = mapUserToLegacyCurrentUser(data.user);
+  storeCurrentUserProfile(data.user);
   return currentUser;
 }
 
 async function loginUser(email, password) {
   const data = await apiRequest('/auth/login/', { method: 'POST', body: { email, password } });
   setAuthToken(data.token);
-  currentUser = mapUserToLegacyCurrentUser(data.user);
+  storeCurrentUserProfile(data.user);
   return currentUser;
 }
 
 async function guestLogin() {
   const data = await apiRequest('/auth/guest-login/', { method: 'POST' });
   setAuthToken(data.token);
-  currentUser = mapUserToLegacyCurrentUser(data.user);
+  storeCurrentUserProfile(data.user);
   currentUserId = 999;
   return currentUser;
 }
 
+/**
+ * Fetches the current user from the server and updates the currentUser variable.
+ * @returns 
+ */
 async function getCurrentUserFromServer() {
   if (!getAuthToken()) {
     currentUser = [];
+    currentUserProfile = null;
     return;
   }
   try {
     const data = await apiRequest('/auth/me/');
-    currentUser = mapUserToLegacyCurrentUser(data);
+    storeCurrentUserProfile(data);
   } catch (e) {
     currentUser = [];
+    currentUserProfile = null;
     console.warn('Could not load currentUser!');
   }
 }
@@ -361,7 +485,8 @@ async function getCurrentUserIdFromServer() {
     return;
   }
   await getContactsFromServer();
-  const match = contacts_global.find((contact) => contact.mail === currentUser.mail);
+  const email = currentUserProfile?.email ?? currentUser.mail;
+  const match = contacts_global.find((contact) => contact.mail === email);
   currentUserId = match ? match.id : 999;
 }
 
