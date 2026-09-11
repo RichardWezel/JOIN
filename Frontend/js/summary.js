@@ -61,16 +61,6 @@ async function greeting() {
 }
 
 /**
- * Starts a timeout.
- * 
- * @param {Number} ms - Time of timeout
- * @returns {TimeRanges}
- */
-function timeout(ms) {
-  return new Promise(res => setTimeout(res,ms));
-}
-
-/**
  * Loads the data from server of contacts_global, tasks, currentUserId.
  */
 async function loadServerData() {

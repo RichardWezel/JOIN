@@ -1,3 +1,40 @@
+// ***** shared view helpers ***** //
+
+/**
+ * Escapes user supplied text so the browser renders it as characters
+ * instead of markup. Use it for every value that goes into innerHTML.
+ *
+ * @param {String} value - raw text coming from the API.
+ * @returns {String} - the same text, safe to embed in HTML.
+ */
+function escapeHtml(value) {
+  const element = document.createElement('div');
+  element.textContent = value ?? '';
+  return element.innerHTML;
+}
+
+/**
+ * Returns a colour only when it is a plain hex value. escapeHtml does not
+ * escape quotes, so an unchecked colour could break out of a style attribute.
+ *
+ * @param {String} value - colour coming from the API.
+ * @returns {String} - the colour, or the server side default.
+ */
+function safeColor(value) {
+  return /^#[0-9a-fA-F]{3,8}$/.test(value ?? '') ? value : '#FFC700';
+}
+
+/**
+ * Resolves after the given number of milliseconds. Shared by every page,
+ * so it lives here instead of being copied into each script.
+ *
+ * @param {Number} ms - Time to wait.
+ * @returns {Promise<void>}
+ */
+function timeout(ms) {
+  return new Promise((res) => setTimeout(res, ms));
+}
+
 // ***** low level API helpers ***** //
 
 const TOKEN_KEY = 'join_token';

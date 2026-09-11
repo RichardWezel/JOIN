@@ -201,15 +201,34 @@
     justify-content: center;
 }
 
-.display_flex a:hover {
+/* Edit und Delete sind jetzt <button> statt <a>. Diese Regel nimmt ihnen die
+   globalen Button-Vorgaben aus main.css sowie den Standard-Innenabstand des
+   Browsers, damit sie exakt wie vorher sitzen. */
+.button_contacts button {
+    font: inherit;
+    color: inherit;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: none;
+}
+
+.button_contacts button:hover {
+    transform: none;
+}
+
+.display_flex a:hover,
+.display_flex button:hover {
     color: rgba(41, 171, 226, 1);
 }
 
-.button_contacts a:hover {
+.button_contacts a:hover,
+.button_contacts button:hover {
     color: rgba(41, 171, 226, 1);
 }
 
-.button_contacts a path:hover {
+.button_contacts a path:hover,
+.button_contacts button path:hover {
     fill: rgba(41, 171, 226, 1);
 }
 

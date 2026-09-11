@@ -375,17 +375,20 @@
         right: 10px;
     }
 
-    .edit_delete_window a:hover {
+    .edit_delete_window a:hover,
+    .edit_delete_window button:hover {
         font-size: 16px;
         font-weight: 700;
         color: rgba(41, 171, 226, 1);
     }
 
-    .edit_delete_window a:hover path {
+    .edit_delete_window a:hover path,
+    .edit_delete_window button:hover path {
         fill: rgba(41, 171, 226, 1);
     }
 
-    .edit_delete_window a {
+    .edit_delete_window a,
+    .edit_delete_window button {
         font-size: 16px;
         display: flex;
         font-weight: 400;

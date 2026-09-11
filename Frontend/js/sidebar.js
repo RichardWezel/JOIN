@@ -22,7 +22,7 @@ async function logOut() {
   clearAuthToken();
   toastMessageLogOut();
   await timeout (750);
-  await closeToast();
+  await closeLogoutToast();
   window.location.href = "index.html";
 }
 
@@ -35,19 +35,9 @@ function toastMessageLogOut() {
 }
 
 /**
- * Starts a timeout.
- * 
- * @param {Number} ms - Time of timeout
- * @returns {TimeRanges}
- */
-function timeout(ms) {
-  return new Promise(res => setTimeout(res,ms));
-}
-
-/**
  * Hides the toast message box
  */
-function closeToast() {
+function closeLogoutToast() {
   let container = document.getElementById('toastMessageLogOut'); 
   container.classList.add('d-none');
 }  

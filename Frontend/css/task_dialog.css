@@ -228,18 +228,37 @@
                 margin-right: 8px;
             }
 
-            .delete_and_edit a{
+            /* Schliessen, Checkbox und Delete/Edit sind jetzt <button> statt <a>.
+               Diese beiden Regeln nehmen ihnen die globalen Button-Vorgaben aus
+               main.css (font-size 21px, fett, Hover-Skalierung), damit sie
+               unveraendert aussehen. */
+            .close,
+            .checkbox1,
+            .delete_and_edit button {
+                font: inherit;
+                color: inherit;
+                padding: 0;
+                transition: none;
+            }
+
+            .close:hover,
+            .checkbox1:hover,
+            .delete_and_edit button:hover {
+                transform: none;
+            }
+
+            .delete_and_edit button{
                 display: flex;
                 align-items: center;
                 color: var(--bgdarkblue);
             }
 
-            .delete_and_edit a:hover{
+            .delete_and_edit button:hover{
                 font-weight: 700;
                 color: var(--blue);
             }
 
-            .delete_and_edit a:hover path {
+            .delete_and_edit button:hover path {
                 fill: var(--blue); 
                 cursor: pointer; 
             }

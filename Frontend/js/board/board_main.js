@@ -43,14 +43,6 @@ async function toastMessageNewTask() {
 }
   
 /**
- * Hides the toast message box
- */
-function closeToast() {
-  let container = document.getElementById('toastMessageAddTask'); //@board.html:43
-  container.classList.add('d-none');
-}
-
-/**
  * Gets Value of search-input-field (in the upper area of the page) in lowerCase letters and trasfer it to renderColumnContent()
  */
 function searchTask() {

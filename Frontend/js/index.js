@@ -53,16 +53,6 @@ function openToastMessageIndex() {
 }
 
 /**
- * Starts a timeout.
- *
- * @param {Number} ms - Time of timeout
- * @returns {TimeRanges}
- */
-function timeout(ms) {
-  return new Promise((res) => setTimeout(res, ms));
-}
-
-/**
  * Hides the toast message box saying "E-Mail or Password not exist"
  */
 function closeToast() {
