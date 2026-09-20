@@ -5,10 +5,12 @@ from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.throttling import ScopedRateThrottle
 from rest_framework.views import APIView
 
 from contacts_app.models import Contact
 
+from .demo import get_or_create_guest, seed_guest_demo
 from .serializers import LoginSerializer, RegisterSerializer, UserSerializer
 
 User = get_user_model()
@@ -18,8 +20,6 @@ CONTACT_COLORS = [
     '#FFBB2B', '#1FD7C1', '#462F8A', '#FF4646', '#00BEE8',
 ]
 
-GUEST_EMAIL = 'guest@join.local'
-
 
 def build_auth_response(user):
     token, _ = Token.objects.get_or_create(user=user)
@@ -28,6 +28,8 @@ def build_auth_response(user):
 
 class RegisterView(APIView):
     permission_classes = [AllowAny]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'auth'
 
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -45,6 +47,8 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'auth'
 
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
@@ -57,18 +61,15 @@ class LoginView(APIView):
 
 class GuestLoginView(APIView):
     permission_classes = [AllowAny]
+    throttle_classes = [ScopedRateThrottle]
+    throttle_scope = 'auth'
 
     def post(self, request):
-        user, created = User.objects.get_or_create(
-            email=GUEST_EMAIL,
-            defaults={'first_name': 'Guest', 'last_name': '', 'color': '#FF7A00'},
-        )
-        if created:
-            user.set_unusable_password()
-            user.save()
-            Contact.objects.create(
-                owner=user, first_name='Guest', last_name='', email='', color=user.color,
-            )
+        user = get_or_create_guest()
+        # A guest without contacts is a fresh database: give it the demo
+        # project right away instead of waiting for the nightly reset.
+        if not user.contacts.exists():
+            seed_guest_demo(user)
         return build_auth_response(user)
 
 

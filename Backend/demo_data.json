@@ -1,0 +1,226 @@
+{
+  "_comment": "Demo project seeded into the guest account by `manage.py reset_demo`. Dates are relative: due_in_days is added to today, so the board never looks stale. Tasks reference contacts by their key.",
+
+  "project": "CityBike – bike rental app, MVP release",
+
+  "contacts": [
+    {
+      "key": "guest",
+      "first_name": "Guest",
+      "last_name": "",
+      "email": "guest@join.local",
+      "phone": "",
+      "color": "#FF7A00",
+      "_role": "Project lead – this is the logged-in guest user"
+    },
+    {
+      "key": "anna",
+      "first_name": "Anna",
+      "last_name": "Berger",
+      "email": "anna.berger@citybike.example",
+      "phone": "+49 30 1234567",
+      "color": "#9327FF",
+      "_role": "Product owner"
+    },
+    {
+      "key": "jonas",
+      "first_name": "Jonas",
+      "last_name": "Keller",
+      "email": "jonas.keller@citybike.example",
+      "phone": "+49 40 2345678",
+      "color": "#00BEE8",
+      "_role": "Backend developer"
+    },
+    {
+      "key": "mira",
+      "first_name": "Mira",
+      "last_name": "Hoffmann",
+      "email": "mira.hoffmann@citybike.example",
+      "phone": "+49 89 3456789",
+      "color": "#FC71FF",
+      "_role": "Frontend developer"
+    },
+    {
+      "key": "leon",
+      "first_name": "Leon",
+      "last_name": "Schulz",
+      "email": "leon.schulz@citybike.example",
+      "phone": "+49 221 4567890",
+      "color": "#1FD7C1",
+      "_role": "UX/UI designer"
+    },
+    {
+      "key": "sofia",
+      "first_name": "Sofia",
+      "last_name": "Wagner",
+      "email": "sofia.wagner@citybike.example",
+      "phone": "+49 711 5678901",
+      "color": "#FFBB2B",
+      "_role": "QA engineer"
+    }
+  ],
+
+  "tasks": [
+    {
+      "title": "Show available bikes on a map",
+      "description": "As a rider, I want to see all available bikes near me on a map so that I can pick the closest one.",
+      "category": "User Story",
+      "priority": "Medium",
+      "status": "toDo",
+      "due_in_days": 5,
+      "contacts": ["mira", "leon"],
+      "subtasks": [
+        { "title": "Integrate map component", "done": false },
+        { "title": "Cluster markers when zoomed out", "done": false },
+        { "title": "Filter by bike type (city / e-bike)", "done": false }
+      ]
+    },
+    {
+      "title": "Set up payment provider sandbox",
+      "description": "Create a sandbox account with the payment provider, store the keys in the environment and verify a test charge end to end.",
+      "category": "Technical Task",
+      "priority": "Urgent",
+      "status": "toDo",
+      "due_in_days": 2,
+      "contacts": ["jonas"],
+      "subtasks": [
+        { "title": "Request sandbox credentials", "done": false },
+        { "title": "Add keys to .env and settings", "done": false },
+        { "title": "Run one successful test payment", "done": false }
+      ]
+    },
+    {
+      "title": "End a rental with one tap",
+      "description": "As a rider, I want to end my rental with a single tap so that I am not charged for time I do not use.",
+      "category": "User Story",
+      "priority": "Medium",
+      "status": "toDo",
+      "due_in_days": 7,
+      "contacts": ["mira", "jonas"],
+      "subtasks": [
+        { "title": "Design confirmation dialog", "done": false },
+        { "title": "PATCH /rentals/{id}/end endpoint", "done": false }
+      ]
+    },
+    {
+      "title": "Write API documentation for the rentals endpoint",
+      "description": "Document request and response formats, error codes and the authentication flow so the mobile team can integrate without asking.",
+      "category": "Technical Task",
+      "priority": "Low",
+      "status": "toDo",
+      "due_in_days": 10,
+      "contacts": ["jonas", "guest"],
+      "subtasks": []
+    },
+
+    {
+      "title": "Implement refresh tokens",
+      "description": "Access tokens currently never expire. Introduce short-lived access tokens with a refresh endpoint and rotate refresh tokens on use.",
+      "category": "Technical Task",
+      "priority": "Urgent",
+      "status": "inProgress",
+      "due_in_days": 1,
+      "contacts": ["jonas"],
+      "subtasks": [
+        { "title": "Add expiry to access tokens", "done": true },
+        { "title": "POST /auth/refresh endpoint", "done": true },
+        { "title": "Rotate refresh token on use", "done": false },
+        { "title": "Update frontend to refresh silently", "done": false }
+      ]
+    },
+    {
+      "title": "Sign up with email address",
+      "description": "As a new rider, I want to create an account with my email address so that I can rent a bike within a minute.",
+      "category": "User Story",
+      "priority": "Medium",
+      "status": "inProgress",
+      "due_in_days": 3,
+      "contacts": ["mira", "sofia"],
+      "subtasks": [
+        { "title": "Sign-up form with validation", "done": true },
+        { "title": "Send verification email", "done": false },
+        { "title": "Test on iOS and Android", "done": false }
+      ]
+    },
+    {
+      "title": "Design system: buttons and form components",
+      "description": "Define the primary, secondary and destructive button styles as well as input, select and checkbox components in the design library.",
+      "category": "Technical Task",
+      "priority": "Medium",
+      "status": "inProgress",
+      "due_in_days": 4,
+      "contacts": ["leon", "mira"],
+      "subtasks": [
+        { "title": "Button variants", "done": true },
+        { "title": "Form inputs", "done": false }
+      ]
+    },
+
+    {
+      "title": "Admin dashboard with daily rentals",
+      "description": "As an operations manager, I want a dashboard showing rentals per day and per station so that I can plan bike redistribution.",
+      "category": "User Story",
+      "priority": "Medium",
+      "status": "awaitFeedback",
+      "due_in_days": 2,
+      "contacts": ["anna", "jonas", "guest"],
+      "subtasks": [
+        { "title": "Aggregation query per station", "done": true },
+        { "title": "Chart component", "done": true },
+        { "title": "Review with operations team", "done": false }
+      ]
+    },
+    {
+      "title": "Accessibility audit of the checkout flow",
+      "description": "Check the checkout flow against WCAG 2.1 AA: keyboard navigation, focus order, contrast and screen reader labels.",
+      "category": "Technical Task",
+      "priority": "Low",
+      "status": "awaitFeedback",
+      "due_in_days": 6,
+      "contacts": ["sofia", "leon"],
+      "subtasks": [
+        { "title": "Keyboard-only walkthrough", "done": true },
+        { "title": "Contrast check of all states", "done": true },
+        { "title": "Screen reader test", "done": true }
+      ]
+    },
+
+    {
+      "title": "Set up CI pipeline with automated tests",
+      "description": "Every push runs linting, unit tests and the API test suite. Failing builds block the merge.",
+      "category": "Technical Task",
+      "priority": "Urgent",
+      "status": "done",
+      "due_in_days": -3,
+      "contacts": ["jonas", "sofia"],
+      "subtasks": [
+        { "title": "Lint step", "done": true },
+        { "title": "Unit test step", "done": true },
+        { "title": "Branch protection rule", "done": true }
+      ]
+    },
+    {
+      "title": "Show my rental history",
+      "description": "As a rider, I want to see my past rentals with duration and price so that I can keep track of my spending.",
+      "category": "User Story",
+      "priority": "Medium",
+      "status": "done",
+      "due_in_days": -1,
+      "contacts": ["mira"],
+      "subtasks": [
+        { "title": "History list view", "done": true },
+        { "title": "Receipt download", "done": true }
+      ]
+    },
+    {
+      "title": "Project kickoff and backlog grooming",
+      "description": "Align on MVP scope, define the definition of done and prioritise the first two sprints.",
+      "category": "Technical Task",
+      "priority": "Low",
+      "status": "done",
+      "due_in_days": -7,
+      "contacts": ["anna", "guest"],
+      "subtasks": []
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+from django.conf import settings
 from rest_framework import serializers
 
 from contacts_app.models import Contact
@@ -13,6 +14,9 @@ class SubtaskSerializer(serializers.ModelSerializer):
 
 
 class TaskSerializer(serializers.ModelSerializer):
+    description = serializers.CharField(
+        required=False, allow_blank=True, max_length=settings.MAX_DESCRIPTION_LENGTH,
+    )
     subtasks = SubtaskSerializer(many=True, required=False)
     contacts = serializers.PrimaryKeyRelatedField(many=True, queryset=Contact.objects.all(), required=False)
     contacts_detail = ContactSerializer(source='contacts', many=True, read_only=True)
@@ -30,6 +34,23 @@ class TaskSerializer(serializers.ModelSerializer):
             if contact.owner_id != owner.id:
                 raise serializers.ValidationError('Unknown contact.')
         return contacts
+
+    def validate_subtasks(self, subtasks):
+        if len(subtasks) > settings.MAX_SUBTASKS_PER_TASK:
+            raise serializers.ValidationError(
+                f'A task can have at most {settings.MAX_SUBTASKS_PER_TASK} subtasks.'
+            )
+        return subtasks
+
+    def validate(self, attrs):
+        # Only new tasks count against the quota; editing an existing one is always allowed.
+        if self.instance is None:
+            owner = self.context['request'].user
+            if owner.tasks.count() >= settings.MAX_TASKS_PER_USER:
+                raise serializers.ValidationError(
+                    f'You have reached the limit of {settings.MAX_TASKS_PER_USER} tasks.'
+                )
+        return attrs
 
     def create(self, validated_data):
         subtasks_data = validated_data.pop('subtasks', [])

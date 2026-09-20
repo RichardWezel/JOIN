@@ -109,7 +109,31 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    # Login, register and guest-login are throttled per client IP (see auth_app.views).
+    # Behind nginx the client IP arrives in X-Forwarded-For; NUM_PROXIES tells DRF
+    # to trust exactly one proxy hop. Without it every request would share one bucket.
+    'DEFAULT_THROTTLE_RATES': {
+        'auth': config('AUTH_THROTTLE_RATE', default='10/min'),
+    },
+    'NUM_PROXIES': config('NUM_PROXIES', default=1, cast=int),
 }
+
+# Throttle counters live in the cache. The default per-process memory cache would
+# give every gunicorn worker its own counter, so use a file based cache instead.
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': BASE_DIR / '.cache',
+    }
+}
+
+
+# Limits per account - protects the shared demo instance from being flooded.
+
+MAX_TASKS_PER_USER = 50
+MAX_CONTACTS_PER_USER = 50
+MAX_SUBTASKS_PER_TASK = 20
+MAX_DESCRIPTION_LENGTH = 2000
 
 
 # CORS - Frontend is served from a different origin during development.
