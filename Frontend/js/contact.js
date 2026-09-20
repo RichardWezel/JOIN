@@ -334,7 +334,13 @@ async function createContact(event) {
             secondName = '';
         }
         let fixedColor = "rgba(255, 199, 0, 1)";
-        let created = await createContactOnServer({ firstName, secondName, mail: emailInput, phone: phoneInput, color: fixedColor });
+        let created;
+        try {
+            created = await createContactOnServer({ firstName, secondName, mail: emailInput, phone: phoneInput, color: fixedColor });
+        } catch (e) {
+            showErrorToast(apiErrorMessage(e, 'Could not create the contact.'));
+            return;
+        }
         await getContactsFromServer();
         person = contacts_global;
         loadContacts();

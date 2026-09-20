@@ -203,3 +203,21 @@ a {
   color: white;
   height: 100%;
 }
+
+/* Error toast created by showErrorToast() in storage.js */
+.toast_error {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: min(90vw, 480px);
+  padding: 16px 24px;
+  border-radius: 16px;
+  background-color: var(--bgdarkblue);
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}

@@ -25,6 +25,44 @@ function safeColor(value) {
 }
 
 /**
+ * Turns the error thrown by apiRequest into one readable sentence.
+ * DRF answers with {"detail": "..."}, {"non_field_errors": ["..."]} or
+ * {"<field>": ["..."]} - the first message found wins.
+ *
+ * @param {Error} error - error thrown by apiRequest.
+ * @param {String} fallback - text when the response carries no message.
+ * @returns {String}
+ */
+function apiErrorMessage(error, fallback = 'Something went wrong. Please try again.') {
+  const data = error && error.data;
+  if (data && typeof data === 'object') {
+    const candidates = [data.detail, data.non_field_errors, ...Object.values(data)];
+    for (const value of candidates) {
+      const text = Array.isArray(value) ? value[0] : value;
+      if (typeof text === 'string' && text) return text;
+    }
+  }
+  return fallback;
+}
+
+/**
+ * Shows a short error message at the top of the page and removes it again.
+ * The text is set via textContent, so it can never be interpreted as HTML.
+ *
+ * @param {String} message
+ * @param {Number} duration - milliseconds until the toast disappears.
+ */
+function showErrorToast(message, duration = 3500) {
+  document.querySelectorAll('.toast_error').forEach((old) => old.remove());
+  const toast = document.createElement('div');
+  toast.className = 'toast_error';
+  toast.setAttribute('role', 'alert');
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), duration);
+}
+
+/**
  * Resolves after the given number of milliseconds. Shared by every page,
  * so it lives here instead of being copied into each script.
  *
@@ -84,6 +122,15 @@ async function apiRequest(path, options = {}) {
     return null;
   }
   const data = await response.json().catch(() => null);
+  if (response.status === 401 && token) {
+    // The stored token is no longer accepted - typically because the nightly
+    // demo reset removed the account. Forget it and go back to the login page.
+    clearAuthToken();
+    const page = window.location.pathname.split('/').pop();
+    if (page !== '' && page !== 'index.html' && page !== 'sign_up.html') {
+      window.location.href = 'index.html';
+    }
+  }
   if (!response.ok) {
     const error = new Error('API request failed');
     error.status = response.status;

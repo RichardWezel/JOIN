@@ -94,7 +94,7 @@ async function createNewTask() {
   try {
     await saveNewTask();
   } catch (e) {
-    alert('Could not create task: ' + (e.data ? JSON.stringify(e.data) : e.message));
+    showErrorToast(apiErrorMessage(e, 'Could not create the task.'));
     return;
   }
   await deleteNewTaskContent();

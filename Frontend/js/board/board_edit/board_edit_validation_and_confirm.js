@@ -9,7 +9,7 @@ async function confirmInputsOfEditDialog(taskId) {
     try {
         await updateTaskOnServer(taskId, currentTaskContent);
     } catch (e) {
-        alert('Could not save task: ' + (e.data ? JSON.stringify(e.data) : e.message));
+        showErrorToast(apiErrorMessage(e, 'Could not save the task.'));
         return;
     }
     await getTasksFromServer();

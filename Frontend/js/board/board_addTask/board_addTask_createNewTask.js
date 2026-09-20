@@ -58,7 +58,7 @@ async function initCreateNewTask() {
     try {
         await createTaskOnServer(newTask_board);
     } catch (e) {
-        alert('Could not create task: ' + (e.data ? JSON.stringify(e.data) : e.message));
+        showErrorToast(apiErrorMessage(e, 'Could not create the task.'));
         return;
     }
     await getTasksFromServer();
