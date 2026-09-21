@@ -36,6 +36,11 @@ function startDragging(taskId, status, event) {
  * @param {TouchEvent} event - The event object representing the touch start event.
  */
 function touchStart(taskId, status, event) {
+    // iOS starts a native HTML5 drag on a long press of a draggable element -
+    // it would fight our touch drag and cancel it. A finger means touch drag
+    // only; the attribute stays "true" for the mouse on the desktop.
+    let card = document.getElementById(`task${taskId}`);
+    if (card) card.draggable = false;
     touchStartX = event.touches[0].clientX;
     touchStartY = event.touches[0].clientY;
     currentTaskId = taskId;
