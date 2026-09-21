@@ -56,14 +56,19 @@ function touchEnd(event) {
         // Treat as a click
         return;
     }
+    // The dragged card has pointer-events: none, so this is what lies beneath it:
+    // a field of the mobile status bar, or - on wider screens - a column.
     let targetElement = document.elementFromPoint(touchEndX, touchEndY);
+    let column = targetElement && targetElement.closest('.board_column');
     if (targetElement && targetElement.classList.contains('status')) {
-        let status = targetElement.id.split('_')[1];
-        moveTo(status);
+        moveTo(targetElement.id.split('_')[1]);   // moveTo re-renders the board itself
+    } else if (column) {
+        moveTo(column.dataset.status);
+    } else {
+        deleteBorderStyles();
+        init_board();                             // nothing hit: put the card back
     }
-    deleteBorderStyles();
     event.preventDefault();
-    init_board();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -119,6 +124,10 @@ function handleTouchMove(event) {
                     dropZone.classList.remove('status_selected');
                 }
             });
+
+    // Same hover feedback as with the mouse: mark the column under the finger.
+    let below = document.elementFromPoint(touch.clientX, touch.clientY);
+    highlightColumn(below ? below.closest('.board_column') : null);
 
     event.preventDefault();
 }

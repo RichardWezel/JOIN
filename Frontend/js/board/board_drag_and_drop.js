@@ -33,7 +33,32 @@ async function moveTo(status) {
 }
 
 /**
- * Deletes the border styles from all columns and hides the status bar.
+ * Marks the column the dragged card is hovering as the drop target.
+ * Used by the mouse (dragover) and the touch path (handleTouchMove) alike.
+ * @param {HTMLElement|null} column - the .board_column element, or null to clear.
+ */
+function highlightColumn(column) {
+    let container = column ? column.querySelector('.task_container') : null;
+    if (container && container.classList.contains('drop_target')) return;
+    document.querySelectorAll('.task_container.drop_target')
+        .forEach(element => element.classList.remove('drop_target'));
+    if (container) container.classList.add('drop_target');
+}
+
+/**
+ * Clears the drop marker when the pointer really leaves the column -
+ * dragleave also fires when moving between the column's own children.
+ * @param {DragEvent} event
+ * @param {HTMLElement} column - the .board_column element.
+ */
+function unhighlightColumn(event, column) {
+    if (!column.contains(event.relatedTarget)) {
+        column.querySelector('.task_container').classList.remove('drop_target');
+    }
+}
+
+/**
+ * Deletes the border styles from all columns, clears the drop marker and hides the status bar.
  */
 function deleteBorderStyles() {
     let columns = ['toDo', 'inProgress', 'awaitFeedback', 'done'];
@@ -42,6 +67,7 @@ function deleteBorderStyles() {
         let columnId = 'task_container_' + changedColumn;
         document.getElementById(columnId).style.border = 'none';
     });
+    highlightColumn(null);
     document.getElementById('status_bar_id').style.display = 'none';
 }
 

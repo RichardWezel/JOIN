@@ -137,6 +137,12 @@ a {
   margin-top: 8px;
   margin-bottom: 30px;
   border-radius: 24px;
+  transition: background-color 120ms ease-out;
+}
+
+/* Column the dragged card is currently hovering - dropping puts it here. */
+.task_container.drop_target {
+  background-color: rgba(42, 54, 71, 0.1);
 }
 .no_task {
   width: 100%;
