@@ -27,9 +27,27 @@ function markAddableColumns(status) {
  * @returns {Promise<void>} - A promise that resolves when the task is moved.
  */
 async function moveTo(status) {
-    await patchTaskStatus(currentDraggedElement, status);
+    let taskId = currentDraggedElement;
+    await patchTaskStatus(taskId, status);
     deleteBorderStyles();
-    init_board();
+    await init_board();
+    scrollToTask(taskId);
+}
+
+/**
+ * Brings a task card into view - used after a drop, because the card may have
+ * landed far away from where it was picked up (e.g. at the top of an empty
+ * column while the user is scrolled to the bottom of a long one).
+ * @param {number} taskId - The ID of the task to show.
+ */
+function scrollToTask(taskId) {
+    let card = document.getElementById(`task${taskId}`);
+    if (!card) return;
+    // Reading the geometry makes the browser lay out the re-rendered board
+    // right now, including clamping the scroll position to the new page
+    // height. A smooth scroll started before that clamp would be cancelled.
+    card.getBoundingClientRect();
+    card.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
 }
 
 /**
