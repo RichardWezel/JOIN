@@ -1,0 +1,27 @@
+# Cache rules for the Join frontend on the All-Inkl webspace.
+#
+# The app is deployed as plain files. Without these rules browsers keep
+# HTML, JS and CSS for days (heuristic caching based on Last-Modified) and
+# end up mixing old and new files after a deploy.
+#
+# "no-cache" does NOT mean "never cache": the browser may keep the file but
+# has to ask the server whether it changed (ETag / If-Modified-Since).
+# Unchanged files get a tiny "304 Not Modified" answer, changed files are
+# delivered fresh - so a deploy is visible on the next page load.
+
+<IfModule mod_headers.c>
+
+    # Markup, code and data: always revalidate.
+    <FilesMatch "\.(html|js|css|json)$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+
+    # Fonts and images practically never change: keep them for 30 days.
+    <FilesMatch "\.(svg|png|jpg|jpeg|gif|ico|woff2|woff|ttf)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # Browsers must trust the declared content type instead of sniffing.
+    Header set X-Content-Type-Options "nosniff"
+
+</IfModule>

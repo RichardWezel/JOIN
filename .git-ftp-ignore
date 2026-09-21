@@ -3,3 +3,4 @@
 Frontend/up.sh
 Frontend/up.bat
 Frontend/package-lock.json
+Frontend/.gitignore
