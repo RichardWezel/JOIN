@@ -43,8 +43,12 @@ a {
 
 .board_column {
   width: 25%;
-  height: 100%;
   min-width: 252px;
+  /* Header on top, task container below - the container can then fill the
+     column, and .board_content (flex row) stretches every column to the
+     height of the tallest one. */
+  display: flex;
+  flex-direction: column;
 }
 
 /* column header */
@@ -128,7 +132,7 @@ a {
 
 /* column content */
 .task_container {
-  height: 100%;
+  flex-grow: 1; /* fill the column: the whole height is a drop target */
   display: flex;
   flex-direction: column;
   gap: 16px;

@@ -84,51 +84,37 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function handleTouchMove(event) {
-    if (!dragging || !currentTaskId) return;
+function freezeDraggedCard(dragItem) {
+    let rect = dragItem.getBoundingClientRect();
+    dragItem.style.width = rect.width + 'px';
+    dragItem.style.height = rect.height + 'px';
+    dragItem.style.position = 'fixed';
+    dragItem.style.zIndex = '9';
+    dragItem.style.pointerEvents = 'none';
+}
 
-    let touch = event.touches[0];
-
-    let dragItem = document.getElementById(`task${currentTaskId}`);
-    if (dragItem.style.position !== 'fixed') {
-        // Freeze the size before lifting the card: .task has "width: 100%",
-        // which would otherwise resolve against the viewport once the card
-        // leaves the normal flow. pointer-events: none lets elementFromPoint
-        // in touchEnd see the drop zone underneath instead of the card itself.
-        let rect = dragItem.getBoundingClientRect();
-        dragItem.style.width = rect.width + 'px';
-        dragItem.style.height = rect.height + 'px';
-        dragItem.style.position = 'fixed';
-        dragItem.style.zIndex = '9';
-        dragItem.style.pointerEvents = 'none';
-    }
+function positionDraggedCard(dragItem, touch) {
     dragItem.style.left = touch.clientX - dragItem.offsetWidth / 2 + 'px';
     dragItem.style.top = touch.clientY - dragItem.offsetHeight / 2 + 'px';
+}
 
-    let dropZone = document.getElementById('status_toDo');
-    let dropRect = dropZone.getBoundingClientRect();
-    let dragRect = dragItem.getBoundingClientRect();
+function updateStatusHighlights(touch) {
+    Array.from(document.getElementsByClassName('status')).forEach(dropZone => {
+        let rect = dropZone.getBoundingClientRect();
+        let inZone = touch.clientX > rect.left && touch.clientX < rect.right &&
+            touch.clientY > rect.top && touch.clientY < rect.bottom;
+        dropZone.classList.toggle('status_selected', inZone);
+    });
+}
 
-    if (dragRect.left >= dropRect.left &&
-        dragRect.right <= dropRect.right &&
-        dragRect.top >= dropRect.top &&
-        dragRect.bottom <= dropRect.bottom);
-  
-    let dropZones = document.getElementsByClassName('status');
-            Array.from(dropZones).forEach(dropZone => {
-                let dropRect = dropZone.getBoundingClientRect();
-                if (touch.clientX > dropRect.left && touch.clientX < dropRect.right &&
-                    touch.clientY > dropRect.top && touch.clientY < dropRect.bottom) {
-                    dropZone.classList.add('status_selected');
-                } else {
-                    dropZone.classList.remove('status_selected');
-                }
-            });
-
-    // Same hover feedback as with the mouse: mark the column under the finger.
-    let below = document.elementFromPoint(touch.clientX, touch.clientY);
-    highlightColumn(below ? below.closest('.board_column') : null);
-
+function handleTouchMove(event) {
+    if (!dragging || !currentTaskId) return;
+    let touch = event.touches[0];
+    let dragItem = document.getElementById(`task${currentTaskId}`);
+    if (dragItem.style.position !== 'fixed') freezeDraggedCard(dragItem);
+    positionDraggedCard(dragItem, touch);
+    updateStatusHighlights(touch);
+    highlightColumn(document.elementFromPoint(touch.clientX, touch.clientY)?.closest('.board_column'));
     event.preventDefault();
 }
 

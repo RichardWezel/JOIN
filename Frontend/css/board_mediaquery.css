@@ -4,8 +4,9 @@
 @media(max-width: 1420px) {
     .board_column {
         width: 25%;
-        height: 100%;
         min-width: auto;
+        /* no height here: a percentage would stop the task container from
+           filling the stretched column (see .board_column in board.css) */
     }
 
     .board_content {
