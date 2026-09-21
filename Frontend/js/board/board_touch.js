@@ -1,7 +1,13 @@
 let touchStartX = 0;
-let touchStartY = 0;  
+let touchStartY = 0;
 let dragging = false;
 let currentTaskId = null;
+
+// A card is picked up only after the finger rests on it for this long.
+// Moving further than the tolerance before that means the user is scrolling.
+const LONG_PRESS_MS = 350;
+const LONG_PRESS_TOLERANCE_PX = 10;
+let longPressTimer = null;
 
 /**
  * Handles the start of a dragging event for a task.
@@ -32,9 +38,34 @@ function startDragging(taskId, status, event) {
 function touchStart(taskId, status, event) {
     touchStartX = event.touches[0].clientX;
     touchStartY = event.touches[0].clientY;
-    dragging = true;
     currentTaskId = taskId;
-    startDragging(taskId, status, event);
+    dragging = false;
+    clearTimeout(longPressTimer);
+    longPressTimer = setTimeout(() => {
+        longPressTimer = null;
+        dragging = true;
+        startDragging(taskId, status, event);
+        liftCard(taskId);
+    }, LONG_PRESS_MS);
+}
+
+/**
+ * Gives feedback that the long press was recognised and the card can be moved.
+ * @param {string} taskId - The ID of the task being picked up.
+ */
+function liftCard(taskId) {
+    let card = document.getElementById(`task${taskId}`);
+    if (card) card.classList.add('lifted');
+    if (navigator.vibrate) navigator.vibrate(30);
+}
+
+/**
+ * Forgets a touch that turned out to be a scroll, a tap or was cancelled.
+ */
+function cancelLongPress() {
+    clearTimeout(longPressTimer);
+    longPressTimer = null;
+    currentTaskId = null;
 }
 
 /**
@@ -43,17 +74,24 @@ function touchStart(taskId, status, event) {
  */
 function touchEnd(event) {
     // The listener sits on document, so every tap on the page ends up here.
-    // Only touches that started on a task card (see touchStart) are ours -
-    // for everything else the browser must be free to fire its click.
-    if (!dragging) return;
+    // Only touches that grew into a drag (see touchStart) are ours - for a
+    // short tap the browser must be free to fire its click.
+    if (!dragging) {
+        cancelLongPress();
+        return;
+    }
     dragging = false;
+    let taskId = currentTaskId;
     currentTaskId = null;
     let touchEndX = event.changedTouches[0].clientX;
     let touchEndY = event.changedTouches[0].clientY;
     let deltaX = touchEndX - touchStartX;
     let deltaY = touchEndY - touchStartY;
-    if (Math.abs(deltaX) < 10 && Math.abs(deltaY) < 10) {
-        // Treat as a click
+    if (Math.abs(deltaX) < LONG_PRESS_TOLERANCE_PX && Math.abs(deltaY) < LONG_PRESS_TOLERANCE_PX) {
+        // Picked up, but put down again in place: no move, and no click either.
+        document.getElementById(`task${taskId}`)?.classList.remove('lifted');
+        deleteBorderStyles();
+        event.preventDefault();
         return;
     }
     // The dragged card has pointer-events: none, so this is what lies beneath it:
@@ -85,9 +123,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function freezeDraggedCard(dragItem) {
-    let rect = dragItem.getBoundingClientRect();
-    dragItem.style.width = rect.width + 'px';
-    dragItem.style.height = rect.height + 'px';
+    // offsetWidth/Height are the layout size - unlike getBoundingClientRect
+    // they ignore the scale() of the lifted card, so it does not grow twice.
+    dragItem.style.width = dragItem.offsetWidth + 'px';
+    dragItem.style.height = dragItem.offsetHeight + 'px';
     dragItem.style.position = 'fixed';
     dragItem.style.zIndex = '9';
     dragItem.style.pointerEvents = 'none';
@@ -108,9 +147,18 @@ function updateStatusHighlights(touch) {
 }
 
 function handleTouchMove(event) {
-    if (!dragging || !currentTaskId) return;
     let touch = event.touches[0];
+    if (!dragging) {
+        // Finger moved before the long press fired: this is a scroll. Let the
+        // browser have it and forget the card.
+        if (currentTaskId && (Math.abs(touch.clientX - touchStartX) > LONG_PRESS_TOLERANCE_PX ||
+                              Math.abs(touch.clientY - touchStartY) > LONG_PRESS_TOLERANCE_PX)) {
+            cancelLongPress();
+        }
+        return;
+    }
     let dragItem = document.getElementById(`task${currentTaskId}`);
+    if (!dragItem) return;
     if (dragItem.style.position !== 'fixed') freezeDraggedCard(dragItem);
     positionDraggedCard(dragItem, touch);
     updateStatusHighlights(touch);
@@ -121,4 +169,6 @@ function handleTouchMove(event) {
 // Attach touchmove and touchend event listeners to the document
 document.addEventListener('touchmove', handleTouchMove);
 document.addEventListener('touchend', touchEnd);
+// The browser took the gesture over (scrolling): never start a drag from it.
+document.addEventListener('touchcancel', cancelLongPress);
 

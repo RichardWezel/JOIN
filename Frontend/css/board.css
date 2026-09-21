@@ -168,7 +168,16 @@ a {
   cursor: pointer;
   width: 100%;
   box-shadow: 0px 0px 10px 3px #00000014;
-  touch-action: none; /* Prevent default touch actions */
+  /* Swiping on a card scrolls; a drag only starts after a long press
+     (board_touch.js), which then blocks scrolling via preventDefault. */
+  touch-action: pan-x pan-y;
+}
+
+/* Card picked up by a long press - the moment the user may start dragging. */
+.task.lifted {
+  transform: scale(1.04);
+  box-shadow: 0px 8px 24px 6px #0000002e;
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
 }
 
 .task:hover {
