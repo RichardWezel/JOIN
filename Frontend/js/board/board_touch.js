@@ -69,6 +69,22 @@ function cancelLongPress() {
 }
 
 /**
+ * The browser ended the touch sequence itself (touchcancel) - e.g. because
+ * it started scrolling. If a card was already picked up, put it back.
+ */
+function abortTouchDrag() {
+    let taskId = currentTaskId;
+    let wasDragging = dragging;
+    cancelLongPress();
+    dragging = false;
+    if (wasDragging) {
+        document.getElementById(`task${taskId}`)?.classList.remove('lifted');
+        deleteBorderStyles();
+        init_board();
+    }
+}
+
+/**
  * Handles the end of a touch event, determining if it should be treated as a click or a drag.
  * @param {TouchEvent} event - The event object representing the touch end event.
  */
@@ -169,6 +185,13 @@ function handleTouchMove(event) {
 // Attach touchmove and touchend event listeners to the document
 document.addEventListener('touchmove', handleTouchMove);
 document.addEventListener('touchend', touchEnd);
-// The browser took the gesture over (scrolling): never start a drag from it.
-document.addEventListener('touchcancel', cancelLongPress);
+// The browser took the gesture over (scrolling, selection): never start or
+// continue a drag from it.
+document.addEventListener('touchcancel', abortTouchDrag);
+
+// A long press on a card is ours. Without this Android and Chrome's device
+// mode open their context menu and cancel the touch - the drag would break.
+document.addEventListener('contextmenu', function(event) {
+    if (currentTaskId !== null || dragging) event.preventDefault();
+});
 
