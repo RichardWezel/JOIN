@@ -85,9 +85,20 @@ function handleTouchMove(event) {
     let touch = event.touches[0];
 
     let dragItem = document.getElementById(`task${currentTaskId}`);
-    dragItem.style.position = 'absolute';
-    dragItem.style.left = touch.pageX - dragItem.offsetWidth / 2 + 'px';
-    dragItem.style.top = touch.pageY - dragItem.offsetHeight / 2 + 'px';
+    if (dragItem.style.position !== 'fixed') {
+        // Freeze the size before lifting the card: .task has "width: 100%",
+        // which would otherwise resolve against the viewport once the card
+        // leaves the normal flow. pointer-events: none lets elementFromPoint
+        // in touchEnd see the drop zone underneath instead of the card itself.
+        let rect = dragItem.getBoundingClientRect();
+        dragItem.style.width = rect.width + 'px';
+        dragItem.style.height = rect.height + 'px';
+        dragItem.style.position = 'fixed';
+        dragItem.style.zIndex = '9';
+        dragItem.style.pointerEvents = 'none';
+    }
+    dragItem.style.left = touch.clientX - dragItem.offsetWidth / 2 + 'px';
+    dragItem.style.top = touch.clientY - dragItem.offsetHeight / 2 + 'px';
 
     let dropZone = document.getElementById('status_toDo');
     let dropRect = dropZone.getBoundingClientRect();
