@@ -3,19 +3,20 @@
 /**
  * Escapes user supplied text so the browser renders it as characters
  * instead of markup. Use it for every value that goes into innerHTML.
+ * Quotes are escaped too, so the result is also safe inside a quoted
+ * attribute such as value="...".
  *
- * @param {String} value - raw text coming from the API.
+ * @param {String} value - raw text coming from the API or an input field.
  * @returns {String} - the same text, safe to embed in HTML.
  */
 function escapeHtml(value) {
-  const element = document.createElement('div');
-  element.textContent = value ?? '';
-  return element.innerHTML;
+  const replacements = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  return String(value ?? '').replace(/[&<>"']/g, (character) => replacements[character]);
 }
 
 /**
- * Returns a colour only when it is a plain hex value. escapeHtml does not
- * escape quotes, so an unchecked colour could break out of a style attribute.
+ * Returns a colour only when it is a plain hex value, so nothing else can
+ * end up inside a style attribute.
  *
  * @param {String} value - colour coming from the API.
  * @returns {String} - the colour, or the server side default.

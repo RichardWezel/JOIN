@@ -56,12 +56,12 @@ function dropdownHtml(contact, contactId) {
       <!-- contact -->
       <div class="display_center gap ">
         <div class="member_cicle_main">
-          <div class="member_cicle" style='background-color:${contact.color};'>
-            ${contact.firstName.charAt(0)}
-            ${secondChar}
+          <div class="member_cicle" style='background-color:${safeColor(contact.color)};'>
+            ${escapeHtml(contact.firstName.charAt(0))}
+            ${escapeHtml(secondChar)}
           </div>
         </div>
-        <div class="member_name">${contact.firstName} ${secondName} <div id="you${contactId}" class="you"></div></div>
+        <div class="member_name">${escapeHtml(contact.firstName)} ${escapeHtml(secondName)} <div id="you${contactId}" class="you"></div></div>
       </div> 
       <!-- checkbox -->
       <div class="dropdown_img" id="selected_img${contactId}">
@@ -175,9 +175,9 @@ function dropdownHtmlMemberCircle(i) {
   let color = contacts_addTask[i].name.color;
   return `
     <div class="member_cicle_main">
-      <div class="member_cicle" style="background-color:${color};">
-        ${firstName.charAt(0)}
-        ${secondName.charAt(0)}
+      <div class="member_cicle" style="background-color:${safeColor(color)};">
+        ${escapeHtml(firstName.charAt(0))}
+        ${escapeHtml(secondName.charAt(0))}
       </div>
     </div>
   `;

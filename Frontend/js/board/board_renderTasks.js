@@ -135,15 +135,15 @@ function taskHTML(task, taskId) {
     id="task${taskId}" 
     onclick="openTaskDetailsDialog(${taskId})" 
     draggable="true" 
-    ondragstart="startDragging(${taskId}, '${status}', event)" 
+    ondragstart="startDragging(${taskId}, '${escapeHtml(status)}', event)" 
     ondragend="deleteBorderStyles()" 
     ontouchmove="handleTouchMove(event, ${taskId})"
-    ontouchstart="touchStart(${taskId}, '${status}', event)" 
+    ontouchstart="touchStart(${taskId}, '${escapeHtml(status)}', event)" 
     ontouchend="touchEnd(event)" 
     class="task">
-    <div id="task_category${taskId}" class="task_category">${category}</div>
-    <div class="task_title">${title}</div>
-    <div id="task_description${taskId}" class="task_description">${description}</div>
+    <div id="task_category${taskId}" class="task_category">${escapeHtml(category)}</div>
+    <div class="task_title">${escapeHtml(title)}</div>
+    <div id="task_description${taskId}" class="task_description">${escapeHtml(description)}</div>
     <div id="task_progressbar${taskId}" class="task_progress"></div>
     <div class="task_members_prio">
         <div id="task_member_section${taskId}" class="task_members"></div>
@@ -332,7 +332,7 @@ function moreMemberHTML(taskId, contactId, moreNumber) {
  */
 function taskMemberHTML(firstCharacter, secondCharacter, taskId, i) {
     return `
-        <div id="task_member${taskId}${i}" class="member_cycle">${firstCharacter}${secondCharacter}</div>
+        <div id="task_member${taskId}${i}" class="member_cycle">${escapeHtml(firstCharacter + secondCharacter)}</div>
     `;
 }
 

@@ -96,7 +96,7 @@ function renderCiclesOfTaskContacts(taskId) {
 function selectedTaskMemberHTML(firstCharacter, secondCharacter, taskId, i) {
     return `
         <div class="circle_size">
-            <div id="selected_task_member${taskId}${i}" class="selected_member_cicle">${firstCharacter}${secondCharacter}</div>
+            <div id="selected_task_member${taskId}${i}" class="selected_member_cicle">${escapeHtml(firstCharacter + secondCharacter)}</div>
         </div> 
     `;
 }
@@ -229,7 +229,7 @@ function editContactListHTML(taskId, contactId) {
             <!-- circle & name -->
             <div class="dropdown_contact_image_name">
                 <div class="circle_size" id="character_image${taskId}${contactId}"></div>
-                <div class="dropdownNames">${contact.firstName} ${secondName_List} <span id="you_edit_assignedTo${taskId}${contactId}" class="you"></span></div>
+                <div class="dropdownNames">${escapeHtml(contact.firstName)} ${escapeHtml(secondName_List)} <span id="you_edit_assignedTo${taskId}${contactId}" class="you"></span></div>
             </div> 
             <!-- checkbox -->
             <div class="checkbox_edit">
@@ -368,7 +368,7 @@ function renderMemberImageDropdown(taskId, contactId) {
  */
 function dropdownContactHTML(firstCharacter, secondCharacter, taskId, contactId) {
     return `
-        <div id="selected_task_member${taskId}${contactId}" class="selected_member_cicle">${firstCharacter}${secondCharacter}</div>
+        <div id="selected_task_member${taskId}${contactId}" class="selected_member_cicle">${escapeHtml(firstCharacter + secondCharacter)}</div>
     `;
 }
 

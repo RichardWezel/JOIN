@@ -81,7 +81,7 @@ function renderTitleEditDialog() {
     let title = currentTaskContent.title;
     container.innerHTML = `
         <label class="header_text_edit_section" for="title_edit" >Titel</label>
-        <input onkeyup="checkFormValidation_title()" onfocusout="checkFormValidation_title()" value="${title}" id="title_edit" name="title_edit" type="text" placeholder="Enter a Title">
+        <input onkeyup="checkFormValidation_title()" onfocusout="checkFormValidation_title()" value="${escapeHtml(title)}" id="title_edit" name="title_edit" type="text" placeholder="Enter a Title">
         <div class="errormessage_title" id="errormessage_title"></div>
     `;
 }
@@ -102,7 +102,7 @@ function renderDescriptionEditDialog() {
 function DescriptionEditDialogHTML() {
     return /*html */ `
     <div class="header_text_edit_section">Description</div>
-    <textarea placeholder="Enter a description" id="edit_input_description" rows="4" type="text">${currentTaskContent.description}</textarea>
+    <textarea placeholder="Enter a description" id="edit_input_description" rows="4" type="text">${escapeHtml(currentTaskContent.description)}</textarea>
     `;
 }
 

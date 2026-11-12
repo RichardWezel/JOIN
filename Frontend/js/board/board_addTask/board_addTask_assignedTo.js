@@ -116,7 +116,7 @@ function renderCiclesOfTaskContacts_addTask() {
 function selectedTaskMemberHTML_addTask(firstCharacter, secondCharacter, i) {
     return `
        <div class="circleImg">
-    <div id="selected_task_member_addTask${i}" class="selected_member_cicle">${firstCharacter}${secondCharacter}</div>
+    <div id="selected_task_member_addTask${i}" class="selected_member_cicle">${escapeHtml(firstCharacter + secondCharacter)}</div>
     </div>
     `;
 }
@@ -233,7 +233,7 @@ function editContactListHTML_addTask(contactId) {
             <!-- circle & name -->
             <div class="dropdown_contact_image_name">
                 <div id="character_circleImg_addTask${contactId}" class="circleImg"></div>
-                <div class="dropdownNames">${contact.firstName} ${contact.secondName} <span id="you_boardAddTask${contactId}"></span></div>
+                <div class="dropdownNames">${escapeHtml(contact.firstName)} ${escapeHtml(contact.secondName)} <span id="you_boardAddTask${contactId}"></span></div>
             </div> 
 
             <!-- checkbox -->
@@ -280,7 +280,7 @@ function renderCiclesOfContactsDropdown_addTask(contactId) {
  */
 function dropdownContactHTML_addTask(firstCharacter, secondCharacter, contactId) {
     return `
-        <div id="selected_task_member_addTask${contactId}" class="selected_member_cicle">${firstCharacter}${secondCharacter}</div>
+        <div id="selected_task_member_addTask${contactId}" class="selected_member_cicle">${escapeHtml(firstCharacter + secondCharacter)}</div>
     `;
 }
 

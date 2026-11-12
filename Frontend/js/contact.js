@@ -51,14 +51,14 @@ async function loadContacts() {
                 let secondLetter = '';
                 if (!displayedLetters.includes(firstLetter)) {
                     displayedLetters.push(firstLetter);
-                    contactList += `<div class="first_letter"><h3>${firstLetter}</h3></div>`;
+                    contactList += `<div class="first_letter"><h3>${escapeHtml(firstLetter)}</h3></div>`;
                 }
                 contactList += contactHTML(i, currentPerson, firstLetter, secondLetter);
             } else {
                 let secondLetter = currentPerson.name.secondName.charAt(0).toUpperCase();
                 if (!displayedLetters.includes(firstLetter)) {
                     displayedLetters.push(firstLetter);
-                    contactList += `<div class="first_letter"><h3>${firstLetter}</h3></div>`;
+                    contactList += `<div class="first_letter"><h3>${escapeHtml(firstLetter)}</h3></div>`;
                 }
                 contactList += contactHTML(i, currentPerson, firstLetter, secondLetter);
             }

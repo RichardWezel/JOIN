@@ -53,7 +53,7 @@ async function greeting() {
       text.innerHTML = 'Good morning!';
     } else {
       text.innerHTML = 'Good morning,';
-      user.innerHTML = `${currentUser.name.firstName} ${currentUser.name.secondName}`;
+      user.textContent = `${currentUser.name.firstName} ${currentUser.name.secondName}`;
     }
     await timeout(2000);
     container.style.display = 'none';
@@ -197,9 +197,9 @@ function renderUserName() {
     userNameElement.innerHTML = `Guest`;
   } else if (typeof currentUser.name.secondName == "undefined") {
     let firstName = currentUser.name.firstName;
-    userNameElement.innerHTML = `${firstName}`; 
+    userNameElement.textContent = `${firstName}`; 
   } else {
-    userNameElement.innerHTML = `${currentUser.name.firstName} ${currentUser.name.secondName}`;
+    userNameElement.textContent = `${currentUser.name.firstName} ${currentUser.name.secondName}`;
   }
 }
 

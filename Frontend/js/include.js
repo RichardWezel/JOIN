@@ -42,12 +42,12 @@ async function setUserInitialsAtHeader() {
   } else if (typeof currentUser.name.secondName == "undefined" || typeof currentUser.name.secondName == '') {
     let firstName = currentUser.name.firstName;
     let firstNameFirstCharacter = firstName.charAt(0);
-    accountLogo.innerHTML = `${firstNameFirstCharacter}`;
+    accountLogo.textContent = `${firstNameFirstCharacter}`;
   } else {
     let firstName = currentUser.name.firstName;
     let firstNameFirstCharacter = firstName.charAt(0);
     let secondName = currentUser.name.secondName;
     let secondNameFirstCharacter = secondName.charAt(0);
-    accountLogo.innerHTML = `${firstNameFirstCharacter} ${secondNameFirstCharacter}`;
+    accountLogo.textContent = `${firstNameFirstCharacter} ${secondNameFirstCharacter}`;
   }
 }

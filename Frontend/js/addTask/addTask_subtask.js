@@ -114,7 +114,7 @@ function subtasklistHTML(subtask_value, subtaskId) {
   <div id="subtasklist_element${subtaskId}" class="subtasklist_element" ondblclick="editNewSubtask(${subtaskId})">
   <div id="subtaskText" class="subtask_text_content_main">
     <div class="point">•</div>
-    <div class="subtask_text_content">${subtask_value}</div>
+    <div class="subtask_text_content">${escapeHtml(subtask_value)}</div>
   </div>
   <div class="pencil_and_trash_new_subtask">
     <a class="edit_pencil" onclick="editNewSubtask(${subtaskId})">
@@ -158,7 +158,7 @@ function editNewSubtask(subtaskId) {
 function subtaskEditHTML(subtask_value, subtaskId) {
   return `
     <div class="new_subtask_edit_main">
-      <input id="new_subtask_edit_text${subtaskId}" class="new_subtask_edit_text" value="${subtask_value.name}" >
+      <input id="new_subtask_edit_text${subtaskId}" class="new_subtask_edit_text" value="${escapeHtml(subtask_value.name)}" >
       <div class="subtask_edit_main">
         <a class="trash" onclick="removeSubtask(${subtaskId})">
           <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
